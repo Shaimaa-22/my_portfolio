@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="hero.name"></title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="controls">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+        <button class="lang-toggle" id="lang-toggle">
+            <span class="lang-text">EN</span>
+        </button>
+    </div>
+
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">SD</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li>
+                    <a href="#home" class="nav-link" data-key="nav.home"></a>
+                </li>
+                <li>
+                    <a href="#about" class="nav-link" data-key="nav.about"></a>
+                </li>
+                <li>
+                    <a href="#experience" class="nav-link" data-key="nav.experience"></a>
+                </li>
+                <li>
+                    <a href="#projects" class="nav-link" data-key="nav.projects"></a>
+                </li>
+                <li>
+                    <a href="#skills" class="nav-link" data-key="nav.skills"></a>
+                </li>
+                <li>
+                    <a href="#contact" class="nav-link" data-key="nav.contact"></a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link cv-link" id="view-cv-btn" data-key="hero.viewCV"></a>
+                </li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-greeting" data-key="hero.greeting"></p>
+                <h1 class="hero-title" data-key="hero.name"></h1>
+                <p class="hero-subtitle" data-key="hero.subtitle"></p>
+                <p class="hero-description" data-key="hero.description"></p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary" data-key="hero.exploreProjects"></a>
+                    <a href="#contact" class="btn btn-secondary" data-key="hero.contactMe"></a>
+                    <button class="btn btn-outline" id="view-cv-hero" data-key="hero.viewCV"></button>
+                </div>
+                <div class="hero-social">
+                    <a href="mailto:shaimaadwedar03@gmail.com" class="social-link" aria-label="Email">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/shaimaa-dwedar-a31561335" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/shaimaa-22" target="_blank" class="social-link" aria-label="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-bg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title" data-key="about.title"></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro" data-key="about.intro"></p>
+                    <p data-key="about.description"></p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>2026</h3>
+                            <p data-key="about.stats.graduation"></p>
+                        </div>
+                        <div class="stat">
+                            <h3>10+</h3>
+                            <p data-key="about.stats.projects"></p>
+                        </div>
+                        <div class="stat">
+                            <h3>5+</h3>
+                            <p data-key="about.stats.technologies"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-education">
+                    <div class="education-card">
+                        <div class="education-icon">🎓</div>
+                        <h3 data-key="about.education.degree"></h3>
+                        <p class="education-school" data-key="about.education.university"></p>
+                        <p class="education-date" data-key="about.education.expectedGrad"></p>
+                        <p class="education-desc" data-key="about.education.degreeDesc"></p>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-icon">💼</div>
+                        <h3 data-key="about.education.trainee"></h3>
+                        <p class="education-school" data-key="about.education.company"></p>
+                        <p class="education-date">2025</p>
+                        <p class="education-desc" data-key="about.education.traineeDesc"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title" data-key="experience.title"></h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date" data-key="experience.trainee.date"></span>
+                        <h3 data-key="experience.trainee.position"></h3>
+                        <p class="timeline-company" data-key="experience.trainee.company"></p>
+                        <ul class="timeline-list">
+                            <li data-key="experience.trainee.tasks.0"></li>
+                            <li data-key="experience.trainee.tasks.1"></li>
+                            <li data-key="experience.trainee.tasks.2"></li>
+                            <li data-key="experience.trainee.tasks.3"></li>
+                            <li data-key="experience.trainee.tasks.4"></li>
+                            <li data-key="experience.trainee.tasks.5"></li>
+                            <li data-key="experience.trainee.tasks.6"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date" data-key="experience.freelance.date"></span>
+                        <h3 data-key="experience.freelance.position"></h3>
+                        <p class="timeline-company" data-key="experience.freelance.company"></p>
+                        <ul class="timeline-list">
+                            <li data-key="experience.freelance.tasks.0"></li>
+                            <li data-key="experience.freelance.tasks.1"></li>
+                            <li data-key="experience.freelance.tasks.2"></li>
+                            <li data-key="experience.freelance.tasks.3"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title" data-key="projects.title"></h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <img src="images/imag.png" alt="IdeasTracker Mobile" class="project-image">
+                    <div class="project-header">
+                        <h3 data-key="projects.ideasTrackerMobile.name"></h3>
+                        <span class="project-tag" data-key="projects.ideasTrackerMobile.tag"></span>
+                    </div>
+                    <p class="project-description" data-key="projects.ideasTrackerMobile.description"></p>
+                    <div class="project-tech">
+                        <span>Flutter</span>
+                        <span>Dart</span>
+                        <span>PostgreSQL</span>
+                        <span>AI Integration</span>
+                        <span>Offline-First</span>
+                    </div>
+                    <a href="https://github.com/Shaimaa-22/ideastracker-flutter-" target="_blank" class="project-link" data-key="projects.viewProject"></a>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/imag.png" alt="IdeasTracker Web" class="project-image">
+                    <div class="project-header">
+                        <h3 data-key="projects.ideasTrackerWeb.name"></h3>
+                        <span class="project-tag" data-key="projects.ideasTrackerWeb.tag"></span>
+                    </div>
+                    <p class="project-description" data-key="projects.ideasTrackerWeb.description"></p>
+                    <div class="project-tech">
+                        <span>JavaScript</span>
+                        <span>AI Chatbot</span>
+                        <span>Real-time DB</span>
+                        <span>Voice Input</span>
+                    </div>
+                    <a href="https://github.com/Shaimaa-22/ideas-tracker" target="_blank" class="project-link" data-key="projects.viewProject"></a>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/splash.jpg" alt="Time Capsule App" class="project-image">
+                    <div class="project-header">
+                        <h3 data-key="projects.timeCapsule.name"></h3>
+                        <span class="project-tag" data-key="projects.timeCapsule.tag"></span>
+                    </div>
+                    <p class="project-description" data-key="projects.timeCapsule.description"></p>
+                    <div class="project-tech">
+                        <span>Flutter</span>
+                        <span>PostgreSQL</span>
+                        <span>Offline Sync</span>
+                        <span>MVVM</span>
+                    </div>
+                    <a href="https://github.com/Shaimaa-22/time_capsule_app" target="_blank" class="project-link" data-key="projects.viewProject"></a>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/persian-cat.webp" alt="catblog App" class="project-image">
+                    <div class="project-header">
+                        <h3 data-key="projects.miniCommunication.name"></h3>
+                        <span class="project-tag" data-key="projects.miniCommunication.tag"></span>
+                    </div>
+                    <p class="project-description" data-key="projects.miniCommunication.description"></p>
+                    <div class="project-tech">
+                        <span>Web</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Clean Architecture</span>
+                    </div>
+                    <a href="https://github.com/Shaimaa-22/catblog" target="_blank" class="project-link" data-key="projects.viewProject"></a>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/logo (1).png" alt="coffeelap App" class="project-image">
+                    <div class="project-header">
+                        <h3 data-key="projects.miniCommunication.name"></h3>
+                        <span class="project-tag" data-key="projects.miniCommunication.tag"></span>
+                    </div>
+                    <p class="project-description" data-key="projects.miniCommunication.description"></p>
+                    <div class="project-tech">
+                        <span>Flutter</span>
+                        <span>Dart</span>
+                        <span>MVVM</span>
+                        <span>Clean Architecture</span>
+                    </div>
+                    <a href="https://github.com/Shaimaa-22/coffeelap" target="_blank" class="project-link" data-key="projects.viewProject"></a>
+                </div>
+                <div class="project-card">
+                    <img src="images/cv.jpg" alt="CV Evaluation Project" class="project-image">
+                    <div class="project-header">
+                        <h3>CV Evaluation Project</h3>
+                        <span class="project-tag">AI | NLP | Python</span>
+                    </div>
+                    <p class="project-description">
+                        This project automatically evaluates and analyzes CVs using Natural Language Processing (NLP) and Machine Learning (ML) techniques. It helps HR teams quickly and accurately screen resumes by extracting key details and providing a quality score based on
+                        skills and experience.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>NLP</span>
+                        <span>Machine Learning</span>
+                        <span>FastAPI</span>
+                        <span>PyTorch</span>
+                    </div>
+                    <a href="https://github.com/Shaimaa-22/CV_Evaluation_Project" target="_blank" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title" data-key="skills.title"></h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 data-key="skills.categories.programming"></h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Dart</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">C/C++</span>
+                        <span class="skill-item">PHP</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-key="skills.categories.frameworks"></h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Flutter</span>
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">React Native</span>
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">Bootstrap</span>
+                        <span class="skill-item">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-key="skills.categories.databases"></h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Firebase</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">Cloudinary</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-key="skills.categories.ai"></h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Whisper API</span>
+                        <span class="skill-item">AI Chatbots</span>
+                        <span class="skill-item">Speech-to-Text</span>
+                        <span class="skill-item">Machine Learning</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-key="skills.categories.architecture"></h3>
+                    <div class="skill-items">
+                        <span class="skill-item">MVVM</span>
+                        <span class="skill-item">Clean Architecture</span>
+                        <span class="skill-item">SOLID Principles</span>
+                        <span class="skill-item">Clean Code</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-key="skills.categories.tools"></h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Git/GitHub</span>
+                        <span class="skill-item">API Integration</span>
+                        <span class="skill-item">Responsive Design</span>
+                        <span class="skill-item">Offline-First</span>
+                        <span class="skill-item">Real-time Features</span>
+                        <span class="skill-item">Multilingual Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-key="contact.title"></h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="contact-intro" data-key="contact.intro"></p>
+                    <div class="contact-methods">
+                        <a href="mailto:shaimaadwedar03@gmail.com" class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 data-key="contact.email"></h4>
+                                <p>shaimaadwedar03@gmail.com</p>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/shaimaa-dwedar-a31561335" target="_blank" class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p>Shaimaa Dwedar</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name" data-key="contact.form.name"></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-key="contact.form.email"></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-key="contact.form.message"></label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-key="contact.form.send"></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-key="footer.copyright"></p>
+            <div class="footer-social">
+                <a href="mailto:shaimaadwedar03@gmail.com" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/shaimaa-dwedar-a31561335" target="_blank" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/shaimaa-22" target="_blank" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cv-modal" id="cv-modal">
+        <div class="cv-modal-content">
+            <button class="cv-modal-close" id="cv-modal-close">&times;</button>
+            <div class="cv-modal-header">
+                <h2 data-key="hero.viewCV"></h2>
+            </div>
+            <div class="cv-modal-body">
+                <iframe id="cv-iframe" src="" frameborder="0"></iframe>
+                <div class="cv-modal-actions">
+                    <a href="#" class="btn btn-primary" id="download-cv" download>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span data-key="downloadCV"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "experience": "Experience",
+        "projects": "Projects",
+        "skills": "Skills",
+        "contact": "Contact"
+    },
+    "hero": {
+        "greeting": "Hello, I'm",
+        "name": "Shaimaa Dwedar",
+        "subtitle": "Passionate Flutter & Full Stack Developer | Computer Engineering Student | AI & Tech Enthusiast",
+        "description": "Specialized in building cross-platform mobile and web applications using Flutter, with experience in AI integration and building innovative Full-Stack solutions.",
+        "exploreProjects": "Explore Projects",
+        "contactMe": "Contact Me",
+        "viewCV": "View CV"
+    },
+    "about": {
+        "title": "About Me",
+        "intro": "Passionate Flutter Developer and Computer Engineering student specializing in building cross-platform mobile and web apps with Clean Architecture, MVVM, and AI-powered features.",
+        "description": "Experienced in building offline-first solutions, PostgreSQL integration, and creating seamless user experiences using Flutter and Dart. I love continuous learning and exploring modern technologies to build innovative applications that solve real problems.",
+        "stats": {
+            "graduation": "Expected Graduation",
+            "projects": "Completed Projects",
+            "technologies": "Technologies Mastered"
+        },
+        "education": {
+            "degree": "B.Sc. in Computer Engineering",
+            "university": "Al-Quds University , Palestine",
+            "expectedGrad": "Expected Graduation: June 2026",
+            "degreeDesc": "5th-year student with a strong focus on Full-Stack development, mobile apps, and AI integration.",
+            "trainee": "Software Development Trainee",
+            "company": "Dimensions Info-tech - Ramallah",
+            "traineeDesc": "Developing cross-platform mobile applications using Flutter with MVVM and Clean Architecture implementation."
+        }
+    },
+    "experience": {
+        "title": "Experience",
+        "trainee": {
+            "date": "2025 - Present",
+            "position": "Software Development Trainee",
+            "company": "Dimensions Info-tech, Ramallah",
+            "tasks": [
+                "Developed and maintained cross-platform mobile applications using Flutter & Dart",
+                "Implemented MVVM architecture to separate UI and business logic",
+                "Applied SOLID principles and Clean Code practices",
+                "Integrated PostgreSQL and offline-first databases",
+                "Added AI-powered Speech-to-Text features using Whisper API",
+                "Built a real-time commenting system",
+                "Delivered multilingual support (Arabic & English) with offline functionality"
+            ]
+        },
+        "freelance": {
+            "date": "2024 - Ongoing",
+            "position": "Freelance Developer",
+            "company": "Personal & Freelance Projects",
+            "tasks": [
+                "Built Full-Stack mobile and web applications using Flutter & React",
+                "Integrated AI features like idea suggestions & Speech-to-Text",
+                "Managed projects from planning to implementation independently",
+                "Applied best practices in code quality and architectural design"
+            ]
+        }
+    },
+    "projects": {
+        "title": "Projects",
+        "viewProject": "🔗 View Project",
+        "ideasTrackerMobile": {
+            "name": "IdeasTracker Mobile",
+            "tag": "Flutter",
+            "description": "Cross-platform mobile app with offline-first support synced to PostgreSQL. Features AI-powered idea suggestions and voice input using Speech-to-Text."
+        },
+        "ideasTrackerWeb": {
+            "name": "IdeasTracker Web",
+            "tag": "Web App",
+            "description": "Web application for collecting and organizing ideas using voice input. Features an AI chatbot to help users refine their ideas with real-time updates."
+        },
+        "timeCapsule": {
+            "name": "Time Capsule App",
+            "tag": "Flutter",
+            "description": "Mobile app for saving memories and future messages with offline-first support and seamless cloud database sync."
+        },
+        "hajjCompanion": {
+            "name": "Hajj Companion App",
+            "tag": "Full-Stack",
+            "description": "Comprehensive mobile and web app to assist pilgrims with AI-enhanced modules like smart reminders and predictive text suggestions."
+        },
+        "miniCommunication": {
+            "name": "Mini Communication App",
+            "tag": "Full-Stack",
+            "description": "Full communication app to practice end-to-end development skills with clean UI design and intuitive user experience."
+        }
+    },
+    "skills": {
+        "title": "Skills",
+        "categories": {
+            "programming": "Programming Languages",
+            "frameworks": "Frameworks & Libraries",
+            "databases": "Databases & Cloud",
+            "ai": "AI Integration",
+            "architecture": "Architecture & Code Quality",
+            "tools": "Tools & Technologies"
+        }
+    },
+    "contact": {
+        "title": "Contact Me",
+        "intro": "Have a project in mind or want to collaborate? Feel free to reach out!",
+        "email": "Email",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "message": "Message",
+            "send": "Send Message",
+            "success": "Thank you {name}! Your message has been received successfully. I will contact you soon at {email}"
+        }
+    },
+    "footer": {
+        "copyright": "© 2025 Shaimaa Dwedar. All rights reserved."
+    },
+    "downloadCV": "Download CV"
+}
