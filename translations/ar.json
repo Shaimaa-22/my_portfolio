@@ -81,15 +81,17 @@
             "tag": "Flutter",
             "description": "تطبيق موبايل لحفظ الذكريات والرسائل المستقبلية مع دعم offline-first وتزامن سلس مع قاعدة البيانات السحابية."
         },
-        "hajjCompanion": {
-            "name": "Hajj Companion App",
-            "tag": "Full-Stack",
-            "description": "تطبيق موبايل وويب شامل لمساعدة الحجاج مع وحدات محسنة بالذكاء الاصطناعي مثل التذكيرات الذكية واقتراحات النصوص التنبؤية."
-        },
+
         "miniCommunication": {
-            "name": "Mini Communication App",
+            "name": "catblog App",
             "tag": "Full-Stack",
             "description": "تطبيق تواصل كامل لممارسة مهارات التطوير من البداية للنهاية مع تصميم واجهة مستخدم نظيفة وتجربة مستخدم بديهية."
+        },
+
+        "coffeelab": {
+            "name": "coffeelab",
+            "tag": "flutter",
+            "description": "تطبيق مقهى مبني باستخدام Flutter بواجهة حديثة وهيكلية نظيفة (Clean Architecture)."
         }
     },
     "skills": {

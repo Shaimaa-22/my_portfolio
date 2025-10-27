@@ -87,10 +87,18 @@
             "description": "Comprehensive mobile and web app to assist pilgrims with AI-enhanced modules like smart reminders and predictive text suggestions."
         },
         "miniCommunication": {
-            "name": "Mini Communication App",
+            "name": "catblog App",
             "tag": "Full-Stack",
             "description": "Full communication app to practice end-to-end development skills with clean UI design and intuitive user experience."
+        },
+
+        "coffeelab": {
+            "name": "Coffeelab App",
+            "tag": "Flutter",
+            "description": "A Flutter-based coffee shop app with modern UI and clean architecture."
         }
+
+
     },
     "skills": {
         "title": "Skills",
