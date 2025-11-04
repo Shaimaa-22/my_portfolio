@@ -18,7 +18,7 @@
     },
     "about": {
         "title": "About Me",
-        "intro": "Passionate Flutter Developer and Computer Engineering student specializing in building cross-platform mobile and web apps with Clean Architecture, MVVM, and AI-powered features.",
+        "intro": "Flutter Developer and Computer Engineering student specializing in building cross-platform mobile and web apps with Clean Architecture, MVVM, and AI-powered features.",
         "description": "Experienced in building offline-first solutions, PostgreSQL integration, and creating seamless user experiences using Flutter and Dart. I love continuous learning and exploring modern technologies to build innovative applications that solve real problems.",
         "stats": {
             "graduation": "Expected Graduation",
