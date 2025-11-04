@@ -34,26 +34,6 @@ my_portfolio/
 └── assets/             # Images, icons, and other media
 ```
 
----
-
-## 💻 Getting Started
-
-To run the project locally:
-
-```bash
-# Clone the repository
-git clone https://github.com/<your-username>/my_portfolio.git
-
-# Navigate to the project folder
-cd my_portfolio
-
-# Open index.html in your browser
-```
-
-Alternatively, you can use a local server for better performance (e.g., VSCode Live Server extension).
-
----
-
 
 ## 🧑‍💻 Customization
 
@@ -61,5 +41,6 @@ You can easily modify:
 - `index.html` → Edit your name, bio, and links  
 - `styles.css` → Update colors, fonts, or layout  
 - `script.js` → Add or adjust animations and behaviors  
+
 
 
