@@ -10,7 +10,7 @@
     "hero": {
         "greeting": "مرحباً، أنا",
         "name": "شيماء دويدار",
-        "subtitle": "Full Stack & Flutter Developer | طالبة هندسة حاسوب | شغوفة بالذكاء الاصطناعي",
+        "subtitle": "Full Stack & Flutter Developer | طالبة هندسة حاسوب | مهتمة بتقنيات الذكاء الاصطناعي",
         "description": "متخصصة في بناء تطبيقات موبايل وويب متعددة المنصات باستخدام Flutter، مع خبرة في دمج الذكاء الاصطناعي وبناء حلول Full-Stack مبتكرة.",
         "exploreProjects": "استكشف المشاريع",
         "contactMe": "تواصل معي",
@@ -18,7 +18,7 @@
     },
     "about": {
         "title": "عني",
-        "intro": "مطورة Flutter شغوفة وطالبة هندسة حاسوب متخصصة في بناء تطبيقات متعددة المنصات للموبايل والويب باستخدام Clean Architecture و MVVM ومزايا مدعومة بالذكاء الاصطناعي.",
+        "intro": "مطورة Flutter  وطالبة هندسة حاسوب متخصصة في بناء تطبيقات متعددة المنصات للموبايل والويب باستخدام Clean Architecture و MVVM ومزايا مدعومة بالذكاء الاصطناعي.",
         "description": "لدي خبرة في بناء حلول offline-first، دمج PostgreSQL، وإنشاء تجارب مستخدم سلسة باستخدام Flutter و Dart. أحب التعلم المستمر واستكشاف التقنيات الحديثة لبناء تطبيقات مبتكرة تحل مشاكل حقيقية.",
         "stats": {
             "graduation": "التخرج المتوقع",
@@ -32,9 +32,15 @@
             "degreeDesc": "طالبة سنة خامسة مع تركيز قوي على تطوير Full-Stack، تطبيقات الموبايل، ودمج الذكاء الاصطناعي.",
             "trainee": "متدربة تطوير برمجيات",
             "company": "Dimensions Info-tech - رام الله",
-            "traineeDesc": "تطوير تطبيقات موبايل متعددة المنصات باستخدام Flutter مع تطبيق MVVM و Clean Architecture."
+            "traineeDesc": "تطوير تطبيقات موبايل متعددة المنصات باستخدام Flutter مع تطبيق MVVM و Clean Architecture.",
+            "nanodegree": "شهادة Nanodegree في تطوير واجهات الويب",
+            "nanodegreeCompany": "Udacity",
+            "nanodegreeDate": "2025",
+            "nanodegreeDesc": "اكتسبت مهارات متقدمة في تطوير واجهات المستخدم باستخدام HTML وCSS وJavaScript، مع التركيز على إنشاء مواقع متجاوبة وتجربة مستخدم سلسة."
         }
     },
+
+
     "experience": {
         "title": "الخبرات",
         "trainee": {
@@ -92,7 +98,21 @@
             "name": "coffeelab",
             "tag": "flutter",
             "description": "تطبيق مقهى مبني باستخدام Flutter بواجهة حديثة وهيكلية نظيفة (Clean Architecture)."
+        },
+        "whereShouldIGo": {
+            "name": "تطبيق Where Should I Go",
+            "tag": "Flutter",
+            "description": "تطبيق ذكي يقترح الأماكن القريبة بناءً على مزاجك والوقت المتاح لديك  مدعوم بالذكاء الاصطناعي وFlutter."
+        },
+        "whereShouldIGoWeb": {
+            "name": "Where Should I Go?",
+            "tag": "Web App",
+            "description": "تطبيق ويب يقترح أماكن ممتعة أو هادئة أو مثيرة حسب مزاجك، وقتك الحالي، وموقعك الجغرافي. يستخدم الذكاء الاصطناعي وبيانات الخرائط لتقديم أفضل التوصيات القريبة منك."
         }
+
+
+
+
     },
     "skills": {
         "title": "المهارات",
@@ -114,7 +134,7 @@
             "email": "البريد الإلكتروني",
             "message": "الرسالة",
             "send": "إرسال الرسالة",
-            "success": "شكراً {name}! تم استلام رسالتك بنجاح. سأتواصل معك قريباً على {email}"
+            "success": "شكرًا لك {name}! ستُرسل رسالتك إلى حسابي على واتساب، وسأتواصل معك قريبًا على {email}."
         }
     },
     "footer": {

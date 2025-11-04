@@ -32,7 +32,12 @@
             "degreeDesc": "5th-year student with a strong focus on Full-Stack development, mobile apps, and AI integration.",
             "trainee": "Software Development Trainee",
             "company": "Dimensions Info-tech - Ramallah",
-            "traineeDesc": "Developing cross-platform mobile applications using Flutter with MVVM and Clean Architecture implementation."
+            "traineeDesc": "Developing cross-platform mobile applications using Flutter with MVVM and Clean Architecture implementation.",
+            "nanodegree": "Frontend Web Developer Nanodegree",
+            "nanodegreeCompany": "Udacity",
+            "nanodegreeDate": "2025",
+            "nanodegreeDesc": "Gained advanced skills in developing responsive user interfaces using HTML, CSS, and JavaScript with a focus on modern frontend design and usability."
+
         }
     },
     "experience": {
@@ -96,7 +101,18 @@
             "name": "Coffeelab App",
             "tag": "Flutter",
             "description": "A Flutter-based coffee shop app with modern UI and clean architecture."
+        },
+        "whereShouldIGo": {
+            "name": "Where Should I Go",
+            "tag": "Flutter",
+            "description": "A smart mobile app that suggests nearby places based on your mood and available time — powered by AI and Flutter."
+        },
+        "whereShouldIGoWeb": {
+            "name": "Where Should I Go?",
+            "tag": "Web App",
+            "description": "A web application that suggests fun, relaxing, or exciting places based on your mood, available time, and current location. Uses AI and mapping data to recommend the best nearby spots."
         }
+
 
 
     },
@@ -120,7 +136,7 @@
             "email": "Email",
             "message": "Message",
             "send": "Send Message",
-            "success": "Thank you {name}! Your message has been received successfully. I will contact you soon at {email}"
+            "success": "Thank you {name}! Your message will be sent to my WhatsApp, and I will contact you soon at {email}."
         }
     },
     "footer": {

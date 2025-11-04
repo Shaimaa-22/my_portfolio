@@ -234,22 +234,25 @@ cards.forEach((card, index) => {
     observer.observe(card)
 })
 
-const contactForm = document.getElementById("contact-form")
+const contactForm = document.getElementById("contact-form");
+
 contactForm.addEventListener("submit", (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const name = document.getElementById("name").value
-    const email = document.getElementById("email").value
-    const message = document.getElementById("message").value
-
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    const phoneNumber = "972594608763";
+    const text = ` مرحباً، أنا ${name}\n بريدي: ${email}\n💬 الرسالة:\n${message}`;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
     const successMessage = getTranslation("contact.form.success", currentLang)
         .replace("{name}", name)
-        .replace("{email}", email)
+        .replace("{email}", email);
+    alert(successMessage);
+    window.open(whatsappURL, "_blank");
+    contactForm.reset();
+});
 
-    alert(successMessage)
-
-    contactForm.reset()
-})
 
 window.addEventListener("scroll", () => {
     let current = ""
