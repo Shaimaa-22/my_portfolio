@@ -54,12 +54,6 @@ Alternatively, you can use a local server for better performance (e.g., VSCode L
 
 ---
 
-## 📸 Preview
-
-*(Replace the image link below with your actual screenshot)*  
-![Portfolio Preview](https://via.placeholder.com/1000x500.png?text=Portfolio+Preview)
-
----
 
 ## 🧑‍💻 Customization
 
@@ -68,23 +62,4 @@ You can easily modify:
 - `styles.css` → Update colors, fonts, or layout  
 - `script.js` → Add or adjust animations and behaviors  
 
----
 
-## 📨 Contact
-
-If you’d like to connect or collaborate:
-
-**Your Name**  
-🌍 [Portfolio](https://your-portfolio-link.com)  
-💼 [LinkedIn](https://linkedin.com/in/your-profile)  
-📧 [Email](mailto:your.email@example.com)  
-
----
-
-## 🪪 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-⭐ *If you like this project, feel free to star the repo on GitHub!*
