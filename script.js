@@ -206,33 +206,56 @@ window.addEventListener("scroll", () => {
 
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: "0px 0px -100px 0px",
+    rootMargin: "0px 0px -80px 0px",
 }
 
-const observer = new IntersectionObserver((entries) => {
+const reveal = (el) => {
+    el.style.opacity = "1"
+    el.style.transform = "translateY(0)"
+}
+
+const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = "1"
-            entry.target.style.transform = "translateY(0)"
+            reveal(entry.target)
+            obs.unobserve(entry.target)
         }
     })
 }, observerOptions)
 
+const isInViewport = (el) => {
+    const rect = el.getBoundingClientRect()
+    return rect.top < (window.innerHeight || document.documentElement.clientHeight)
+}
+
+const observeElement = (el, delay = 0) => {
+    el.style.opacity = "0"
+    el.style.transform = "translateY(30px)"
+    el.style.transition = `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`
+
+    // Reveal immediately if the element is already in view on load.
+    if (isInViewport(el)) {
+        reveal(el)
+        return
+    }
+
+    observer.observe(el)
+
+    // Safety fallback: never let content stay hidden if the observer
+    // doesn't fire (fast scrolling, unsupported browsers, etc.).
+    setTimeout(() => {
+        if (el.style.opacity === "0") {
+            reveal(el)
+            observer.unobserve(el)
+        }
+    }, 1500 + delay * 1000)
+}
+
 const sections = document.querySelectorAll("section")
-sections.forEach((section) => {
-    section.style.opacity = "0"
-    section.style.transform = "translateY(30px)"
-    section.style.transition = "opacity 0.6s ease, transform 0.6s ease"
-    observer.observe(section)
-})
+sections.forEach((section) => observeElement(section))
 
 const cards = document.querySelectorAll(".project-card, .skill-category, .education-card, .timeline-item")
-cards.forEach((card, index) => {
-    card.style.opacity = "0"
-    card.style.transform = "translateY(30px)"
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`
-    observer.observe(card)
-})
+cards.forEach((card, index) => observeElement(card, index * 0.1))
 
 const contactForm = document.getElementById("contact-form");
 
