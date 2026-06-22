@@ -1,318 +1,343 @@
-const translations = {}
-let currentLang = localStorage.getItem("language") || "ar"
-let currentTheme = localStorage.getItem("theme") || "light"
+import arData from "./translations/ar.json"
+import enData from "./translations/en.json"
 
-async function loadTranslations() {
-    try {
-        const arResponse = await fetch("translations/ar.json")
-        const enResponse = await fetch("translations/en.json")
-        translations.ar = await arResponse.json()
-        translations.en = await enResponse.json()
-    } catch (error) {
-        console.error("Error loading translations:", error)
-    }
-}
+const translations = { ar: arData, en: enData }
 
+// Default language is English (LTR) unless the visitor previously chose otherwise.
+let currentLang = localStorage.getItem("language") || "en"
+let currentTheme = localStorage.getItem("theme") || "dark"
+
+/* ------------------------------------------------------------------ */
+/* Translations                                                        */
+/* ------------------------------------------------------------------ */
 function getTranslation(key, lang) {
-    const keys = key.split(".")
-    let value = translations[lang]
-    for (const k of keys) {
-        if (value && value[k]) {
-            value = value[k]
-        } else {
-            return key
-        }
+  const keys = key.split(".")
+  let value = translations[lang]
+  for (const k of keys) {
+    if (value && value[k] !== undefined) {
+      value = value[k]
+    } else {
+      return key
     }
-    return value
+  }
+  return value
 }
 
 function updateContent(lang) {
-    const elements = document.querySelectorAll("[data-key]")
-    elements.forEach((el) => {
-        const key = el.getAttribute("data-key")
-        const translation = getTranslation(key, lang)
-        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-            el.placeholder = translation
-        } else {
-            el.textContent = translation
-        }
-    })
-
-    const legacyElements = document.querySelectorAll("[data-ar][data-en]")
-    legacyElements.forEach((el) => {
-        if (!el.hasAttribute("data-key")) {
-            if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-                el.placeholder = el.getAttribute(`data-${lang}`)
-            } else {
-                el.textContent = el.getAttribute(`data-${lang}`)
-            }
-        }
-    })
-}
-
-document.addEventListener("DOMContentLoaded", async() => {
-    await loadTranslations()
-
-    if (currentTheme === "dark") {
-        document.body.classList.add("dark-mode")
-    }
-
-    if (currentLang === "en") {
-        switchLanguage("en")
+  // Simple text nodes
+  document.querySelectorAll("[data-key]").forEach((el) => {
+    const key = el.getAttribute("data-key")
+    const translation = getTranslation(key, lang)
+    if (typeof translation !== "string") return
+    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+      el.placeholder = translation
     } else {
-        updateContent("ar")
+      el.textContent = translation
     }
+  })
 
-    initCVModal()
-})
+  // List blocks (e.g. experience tasks)
+  document.querySelectorAll("[data-list]").forEach((ul) => {
+    const key = ul.getAttribute("data-list")
+    const items = getTranslation(key, lang)
+    if (!Array.isArray(items)) return
+    ul.innerHTML = ""
+    items.forEach((text, i) => {
+      const li = document.createElement("li")
+      li.textContent = text
+      li.style.setProperty("--li-i", i)
+      ul.appendChild(li)
+    })
+  })
 
-const themeToggle = document.getElementById("theme-toggle")
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode")
-    currentTheme = document.body.classList.contains("dark-mode") ? "dark" : "light"
-    localStorage.setItem("theme", currentTheme)
-})
-
-const langToggle = document.getElementById("lang-toggle")
-const langText = document.querySelector(".lang-text")
-
-langToggle.addEventListener("click", () => {
-    currentLang = currentLang === "ar" ? "en" : "ar"
-    switchLanguage(currentLang)
-    localStorage.setItem("language", currentLang)
-})
-
-function switchLanguage(lang) {
-    const html = document.documentElement
-
-    if (lang === "en") {
-        html.setAttribute("lang", "en")
-        html.setAttribute("dir", "ltr")
-        langText.textContent = "ع"
-    } else {
-        html.setAttribute("lang", "ar")
-        html.setAttribute("dir", "rtl")
-        langText.textContent = "EN"
-    }
-
-    updateContent(lang)
+  // Document title
+  document.title = getTranslation("meta.title", lang)
 }
 
-function initCVModal() {
-    const cvModal = document.getElementById("cv-modal")
-    const cvIframe = document.getElementById("cv-iframe")
-    const viewCvBtn = document.getElementById("view-cv-btn")
-    const viewCvHero = document.getElementById("view-cv-hero")
-    const closeModal = document.getElementById("cv-modal-close")
-    const downloadCv = document.getElementById("download-cv")
+function applyLanguage(lang, animate = false) {
+  const html = document.documentElement
+  if (lang === "en") {
+    html.setAttribute("lang", "en")
+    html.setAttribute("dir", "ltr")
+    document.querySelector(".lang-text").textContent = "ع"
+  } else {
+    html.setAttribute("lang", "ar")
+    html.setAttribute("dir", "rtl")
+    document.querySelector(".lang-text").textContent = "EN"
+  }
 
-    const cvPath = "cv/Shaimaa_Dwedar_CV.pdf"
-
-    const openModal = (e) => {
-        e.preventDefault()
-        cvModal.classList.add("active")
-        cvIframe.src = cvPath
-        document.body.style.overflow = "hidden"
-    }
-
-    if (viewCvBtn) viewCvBtn.addEventListener("click", openModal)
-    if (viewCvHero) viewCvHero.addEventListener("click", openModal)
-
-    const closeModalFunc = () => {
-        cvModal.classList.remove("active")
-        cvIframe.src = ""
-        document.body.style.overflow = "auto"
-    }
-
-    if (closeModal) closeModal.addEventListener("click", closeModalFunc)
-
-    cvModal.addEventListener("click", (e) => {
-        if (e.target === cvModal) {
-            closeModalFunc()
-        }
-    })
-
-    if (downloadCv) {
-        downloadCv.href = cvPath
-        downloadCv.download = "Shaimaa_Dwedar_CV.pdf"
-    }
-
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && cvModal.classList.contains("active")) {
-            closeModalFunc()
-        }
-    })
-}
-
-const navToggle = document.getElementById("nav-toggle")
-const navMenu = document.getElementById("nav-menu")
-
-navToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active")
-
-    const spans = navToggle.querySelectorAll("span")
-    if (navMenu.classList.contains("active")) {
-        spans[0].style.transform = "rotate(45deg) translate(5px, 5px)"
-        spans[1].style.opacity = "0"
-        spans[2].style.transform = "rotate(-45deg) translate(7px, -6px)"
-    } else {
-        spans[0].style.transform = "none"
-        spans[1].style.opacity = "1"
-        spans[2].style.transform = "none"
-    }
-})
-
-const navLinks = document.querySelectorAll(".nav-link")
-navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active")
-        const spans = navToggle.querySelectorAll("span")
-        spans[0].style.transform = "none"
-        spans[1].style.opacity = "1"
-        spans[2].style.transform = "none"
-    })
-})
-
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function(e) {
-        const href = this.getAttribute("href")
-        if (href !== "#" && href.startsWith("#")) {
-            e.preventDefault()
-            const target = document.querySelector(href)
-            if (target) {
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                })
-            }
-        }
-    })
-})
-
-const nav = document.getElementById("nav")
-let lastScroll = 0
-
-window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset
-
-    if (currentScroll > 100) {
-        nav.classList.add("scrolled")
-    } else {
-        nav.classList.remove("scrolled")
-    }
-
-    lastScroll = currentScroll
-})
-
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -80px 0px",
-}
-
-const reveal = (el) => {
-    el.style.opacity = "1"
-    el.style.transform = "translateY(0)"
-}
-
-const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            reveal(entry.target)
-            obs.unobserve(entry.target)
-        }
-    })
-}, observerOptions)
-
-const isInViewport = (el) => {
-    const rect = el.getBoundingClientRect()
-    return rect.top < (window.innerHeight || document.documentElement.clientHeight)
-}
-
-const observeElement = (el, delay = 0) => {
-    el.style.opacity = "0"
-    el.style.transform = "translateY(30px)"
-    el.style.transition = `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`
-
-    // Reveal immediately if the element is already in view on load.
-    if (isInViewport(el)) {
-        reveal(el)
-        return
-    }
-
-    observer.observe(el)
-
-    // Safety fallback: never let content stay hidden if the observer
-    // doesn't fire (fast scrolling, unsupported browsers, etc.).
+  if (animate) {
+    document.body.classList.add("lang-switching")
     setTimeout(() => {
-        if (el.style.opacity === "0") {
-            reveal(el)
-            observer.unobserve(el)
-        }
-    }, 1500 + delay * 1000)
+      updateContent(lang)
+      document.body.classList.remove("lang-switching")
+    }, 220)
+  } else {
+    updateContent(lang)
+  }
 }
 
-const sections = document.querySelectorAll("section")
-sections.forEach((section) => observeElement(section))
+/* ------------------------------------------------------------------ */
+/* Theme                                                               */
+/* ------------------------------------------------------------------ */
+function applyTheme(theme) {
+  document.body.classList.toggle("light-mode", theme === "light")
+}
 
-const cards = document.querySelectorAll(".project-card, .skill-category, .education-card, .timeline-item")
-cards.forEach((card, index) => observeElement(card, index * 0.1))
+/* ------------------------------------------------------------------ */
+/* Init                                                                */
+/* ------------------------------------------------------------------ */
+document.addEventListener("DOMContentLoaded", () => {
+  applyTheme(currentTheme)
+  applyLanguage(currentLang)
 
-const contactForm = document.getElementById("contact-form");
+  initLoader()
+  initThemeToggle()
+  initLangToggle()
+  initNav()
+  initSmoothScroll()
+  initScrollEffects()
+  initReveal()
+  initTilt()
+  initCursorGlow()
+  initHeroParallax()
+  initCVModal()
+  initContactForm()
+})
 
-contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+/* Loader */
+function initLoader() {
+  const loader = document.getElementById("loader")
+  if (!loader) return
+  window.addEventListener("load", () => {
+    setTimeout(() => loader.classList.add("hidden"), 450)
+  })
+  // Fallback
+  setTimeout(() => loader.classList.add("hidden"), 1600)
+}
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-    const phoneNumber = "972594608763";
-    const text = ` مرحباً، أنا ${name}\n بريدي: ${email}\n💬 الرسالة:\n${message}`;
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
-    const successMessage = getTranslation("contact.form.success", currentLang)
-        .replace("{name}", name)
-        .replace("{email}", email);
-    alert(successMessage);
-    window.open(whatsappURL, "_blank");
-    contactForm.reset();
-});
+/* Theme toggle */
+function initThemeToggle() {
+  const themeToggle = document.getElementById("theme-toggle")
+  themeToggle.addEventListener("click", () => {
+    currentTheme = document.body.classList.contains("light-mode") ? "dark" : "light"
+    applyTheme(currentTheme)
+    localStorage.setItem("theme", currentTheme)
+  })
+}
 
+/* Language toggle */
+function initLangToggle() {
+  const langToggle = document.getElementById("lang-toggle")
+  langToggle.addEventListener("click", () => {
+    currentLang = currentLang === "ar" ? "en" : "ar"
+    applyLanguage(currentLang, true)
+    localStorage.setItem("language", currentLang)
+  })
+}
 
-window.addEventListener("scroll", () => {
+/* Mobile nav */
+function initNav() {
+  const navToggle = document.getElementById("nav-toggle")
+  const navMenu = document.getElementById("nav-menu")
+  const setBars = (open) => {
+    const s = navToggle.querySelectorAll("span")
+    if (open) {
+      s[0].style.transform = "rotate(45deg) translate(5px, 5px)"
+      s[1].style.opacity = "0"
+      s[2].style.transform = "rotate(-45deg) translate(6px, -6px)"
+    } else {
+      s[0].style.transform = "none"
+      s[1].style.opacity = "1"
+      s[2].style.transform = "none"
+    }
+  }
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active")
+    setBars(navMenu.classList.contains("active"))
+  })
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active")
+      setBars(false)
+    })
+  })
+}
+
+/* Smooth scroll */
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href")
+      if (href !== "#" && href.startsWith("#")) {
+        const target = document.querySelector(href)
+        if (target) {
+          e.preventDefault()
+          target.scrollIntoView({ behavior: "smooth", block: "start" })
+        }
+      }
+    })
+  })
+}
+
+/* Nav scroll state, active link + scroll progress */
+function initScrollEffects() {
+  const nav = document.getElementById("nav")
+  const progress = document.getElementById("scroll-progress")
+  const sections = document.querySelectorAll("section[id]")
+  const navLinks = document.querySelectorAll(".nav-link")
+
+  const onScroll = () => {
+    const y = window.pageYOffset
+    nav.classList.toggle("scrolled", y > 60)
+
+    const h = document.documentElement.scrollHeight - window.innerHeight
+    progress.style.width = `${(y / h) * 100}%`
+
     let current = ""
     sections.forEach((section) => {
-        const sectionTop = section.offsetTop
-        const sectionHeight = section.clientHeight
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute("id")
-        }
+      if (y >= section.offsetTop - 220) current = section.getAttribute("id")
     })
-
     navLinks.forEach((link) => {
-        link.classList.remove("active")
-        if (link.getAttribute("href") === `#${current}`) {
-            link.classList.add("active")
+      link.classList.toggle("active", link.getAttribute("href") === `#${current}`)
+    })
+  }
+  window.addEventListener("scroll", onScroll, { passive: true })
+  onScroll()
+}
+
+/* Reveal on scroll with stagger */
+function initReveal() {
+  const els = document.querySelectorAll(".reveal")
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Stagger siblings inside the same parent group
+          const parent = entry.target.parentElement
+          const group = parent ? [...parent.querySelectorAll(":scope > .reveal")] : [entry.target]
+          const idx = group.indexOf(entry.target)
+          entry.target.style.transitionDelay = `${Math.max(0, idx) * 80}ms`
+          entry.target.classList.add("in-view")
+          obs.unobserve(entry.target)
         }
+      })
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+  )
+  els.forEach((el) => observer.observe(el))
+
+  // Safety: reveal anything still hidden after a while
+  setTimeout(() => els.forEach((el) => el.classList.add("in-view")), 2500)
+}
+
+/* 3D tilt for project cards */
+function initTilt() {
+  const cards = document.querySelectorAll("[data-tilt]")
+  const isTouch = window.matchMedia("(hover: none)").matches
+  if (isTouch) return
+  cards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const r = card.getBoundingClientRect()
+      const px = (e.clientX - r.left) / r.width
+      const py = (e.clientY - r.top) / r.height
+      const rx = (py - 0.5) * -10
+      const ry = (px - 0.5) * 12
+      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`
+      card.style.setProperty("--mx", `${px * 100}%`)
+      card.style.setProperty("--my", `${py * 100}%`)
     })
-})
-
-window.addEventListener("scroll", () => {
-    const scrolled = window.pageYOffset
-    const heroContent = document.querySelector(".hero-content")
-    const heroImage = document.querySelector(".hero-image")
-
-    if (heroContent && heroImage && scrolled < window.innerHeight) {
-        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`
-        heroImage.style.transform = `translateY(${scrolled * 0.2}px)`
-    }
-})
-
-const skillItems = document.querySelectorAll(".skill-item")
-skillItems.forEach((item) => {
-    item.addEventListener("mouseenter", function() {
-        this.style.transform = "translateY(-5px) scale(1.05)"
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = ""
     })
+  })
+}
 
-    item.addEventListener("mouseleave", function() {
-        this.style.transform = "translateY(0) scale(1)"
+/* Cursor glow */
+function initCursorGlow() {
+  const glow = document.getElementById("cursor-glow")
+  if (!glow || window.matchMedia("(hover: none)").matches) return
+  let raf = null
+  window.addEventListener("mousemove", (e) => {
+    if (raf) return
+    raf = requestAnimationFrame(() => {
+      glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
+      raf = null
     })
-})
+  })
+}
+
+/* Hero parallax */
+function initHeroParallax() {
+  const content = document.querySelector(".hero-content")
+  const visual = document.querySelector(".hero-visual")
+  window.addEventListener(
+    "scroll",
+    () => {
+      const y = window.pageYOffset
+      if (y < window.innerHeight && content && visual) {
+        content.style.transform = `translateY(${y * 0.18}px)`
+        visual.style.transform = `translateY(${y * 0.32}px)`
+      }
+    },
+    { passive: true },
+  )
+}
+
+/* CV modal */
+function initCVModal() {
+  const cvModal = document.getElementById("cv-modal")
+  const cvIframe = document.getElementById("cv-iframe")
+  const viewCvBtn = document.getElementById("view-cv-btn")
+  const viewCvHero = document.getElementById("view-cv-hero")
+  const closeBtn = document.getElementById("cv-modal-close")
+  const downloadCv = document.getElementById("download-cv")
+  const cvPath = "/cv/Shaimaa_Dwedar_CV.pdf"
+
+  const open = (e) => {
+    e.preventDefault()
+    cvModal.classList.add("active")
+    cvIframe.src = cvPath
+    document.body.style.overflow = "hidden"
+  }
+  const close = () => {
+    cvModal.classList.remove("active")
+    cvIframe.src = ""
+    document.body.style.overflow = ""
+  }
+
+  if (viewCvBtn) viewCvBtn.addEventListener("click", open)
+  if (viewCvHero) viewCvHero.addEventListener("click", open)
+  if (closeBtn) closeBtn.addEventListener("click", close)
+  cvModal.addEventListener("click", (e) => {
+    if (e.target === cvModal) close()
+  })
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && cvModal.classList.contains("active")) close()
+  })
+  if (downloadCv) {
+    downloadCv.href = cvPath
+    downloadCv.download = "Shaimaa_Dwedar_CV.pdf"
+  }
+}
+
+/* Contact form -> WhatsApp */
+function initContactForm() {
+  const form = document.getElementById("contact-form")
+  if (!form) return
+  form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    const name = document.getElementById("name").value
+    const email = document.getElementById("email").value
+    const message = document.getElementById("message").value
+    const phoneNumber = "972594608763"
+    const text = `Hi, I'm ${name}\nEmail: ${email}\nMessage:\n${message}`
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`
+    const successMessage = getTranslation("contact.form.success", currentLang)
+      .replace("{name}", name)
+      .replace("{email}", email)
+    alert(successMessage)
+    window.open(whatsappURL, "_blank")
+    form.reset()
+  })
+}
