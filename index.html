@@ -2,536 +2,476 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shaimaa Dwedar</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shaimaa Dwedar — Computer Engineering graduate, Full-Stack & Flutter Developer, AI & IoT enthusiast." />
+  <meta name="theme-color" content="#0b1120" />
+  <title data-key="meta.title">Shaimaa Dwedar — Full-Stack & Flutter Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
-    <div class="controls">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </button>
-        <button class="lang-toggle" id="lang-toggle">
-            <span class="lang-text">EN</span>
-        </button>
+  <!-- Animated background -->
+  <div class="bg-aurora" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Cursor glow -->
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Page loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-mark">SD</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+
+  <div class="controls">
+    <button class="ctrl-btn theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+    <button class="ctrl-btn lang-toggle" id="lang-toggle" aria-label="Switch language">
+      <span class="lang-text">ع</span>
+    </button>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">SD</a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link" data-key="nav.home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-key="nav.about">About</a></li>
+        <li><a href="#experience" class="nav-link" data-key="nav.experience">Experience</a></li>
+        <li><a href="#projects" class="nav-link" data-key="nav.projects">Projects</a></li>
+        <li><a href="#skills" class="nav-link" data-key="nav.skills">Skills</a></li>
+        <li><a href="#contact" class="nav-link" data-key="nav.contact">Contact</a></li>
+        <li><a href="#" class="nav-link cv-link" id="view-cv-btn" data-key="nav.viewCV">View CV</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <nav class="nav" id="nav">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">SD</a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="#" class="nav-link cv-link" id="view-cv-btn">View CV</a></li>
-            </ul>
-            <button class="nav-toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
+  <main>
+    <!-- HERO -->
     <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <p class="hero-greeting">Hello, I'm</p>
-                <h1 class="hero-title">Shaimaa Dwedar</h1>
-                <p class="hero-subtitle">Computer Engineering Graduate</p>
-                <p class="hero-description">
-                    Full-Stack Developer, Flutter Developer, and AI & IoT Enthusiast building intelligent web applications, mobile solutions, AI-powered platforms, and embedded systems that solve real-world problems.
-                </p>
+      <div class="hero-container">
+        <div class="hero-content">
+          <p class="hero-greeting reveal" data-key="hero.greeting">Hello, I'm</p>
+          <h1 class="hero-title reveal" data-key="hero.name">Shaimaa Dwedar</h1>
+          <p class="hero-subtitle reveal" data-key="hero.subtitle">Computer Engineering Graduate</p>
+          <p class="hero-description reveal" data-key="hero.description">
+            Full-Stack Developer, Flutter Developer, and AI & IoT Enthusiast building intelligent web applications, mobile solutions, AI-powered platforms, and embedded systems that solve real-world problems.
+          </p>
 
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">Explore Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                    <button class="btn btn-outline" id="view-cv-hero">View CV</button>
-                </div>
+          <div class="hero-buttons reveal">
+            <a href="#projects" class="btn btn-primary" data-key="hero.exploreProjects">Explore Projects</a>
+            <a href="#contact" class="btn btn-secondary" data-key="hero.contactMe">Contact Me</a>
+            <button class="btn btn-outline" id="view-cv-hero" data-key="hero.viewCV">View CV</button>
+          </div>
 
-                <div class="hero-social">
-                    <a href="mailto:shaimaadwedar03@gmail.com" class="social-link" aria-label="Email">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/shaimaa-dwedar-a31561335" target="_blank" class="social-link" aria-label="LinkedIn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-
-                    <a href="https://github.com/Shaimaa-22" target="_blank" class="social-link" aria-label="GitHub">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386C24 5.373 18.627 0 12 0z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <div class="hero-image">
-                <div class="hero-image-wrapper">
-                    <div class="hero-image-bg"></div>
-                </div>
-            </div>
+          <div class="hero-social reveal">
+            <a href="mailto:shaimaadwedar03@gmail.com" class="social-link" aria-label="Email">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/shaimaa-dwedar-a31561335" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/Shaimaa-22" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386C24 5.373 18.627 0 12 0z"/>
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <div class="scroll-indicator">
-            <span></span>
+        <div class="hero-visual reveal">
+          <div class="hero-card" id="hero-card">
+            <div class="hero-card-inner">
+              <div class="hero-avatar">SD</div>
+              <div class="hero-card-glow"></div>
+              <div class="orbit orbit-1"><span>Flutter</span></div>
+              <div class="orbit orbit-2"><span>AI</span></div>
+              <div class="orbit orbit-3"><span>IoT</span></div>
+              <div class="orbit orbit-4"><span>Node.js</span></div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+        <span></span>
+      </a>
     </section>
 
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-intro">
-                        Computer Engineering graduate with hands-on experience in Full-Stack Development, Flutter Applications, Artificial Intelligence, and IoT Systems.
-                    </p>
-
-                    <p>
-                        Throughout my academic and personal projects, I have designed and developed complete software solutions ranging from responsive web applications and Flutter mobile apps to AI-powered platforms and ESP32-based automation systems. I enjoy transforming ideas into practical products through clean architecture, scalable backend systems, modern technologies, and user-focused design.
-                    </p>
-
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>2026</h3>
-                            <p>Graduation Year</p>
-                        </div>
-                        <div class="stat">
-                            <h3>10+</h3>
-                            <p>Completed Projects</p>
-                        </div>
-                        <div class="stat">
-                            <h3>15+</h3>
-                            <p>Technologies & Tools</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-education">
-                    <div class="education-card">
-                        <div class="education-icon">🎓</div>
-                        <h3>B.Sc. in Computer Engineering</h3>
-                        <p class="education-school">Al-Quds University, Palestine</p>
-                        <p class="education-date">Graduated: June 2026</p>
-                        <p class="education-desc">
-                            Computer Engineering graduate with hands-on experience in building full-stack web applications, mobile solutions, AI-powered platforms, and IoT systems.
-                        </p>
-                    </div>
-
-                    <div class="education-card">
-                        <div class="education-icon">💼</div>
-                        <h3>Software Development Trainee</h3>
-                        <p class="education-school">Dimensions Info-tech - Ramallah</p>
-                        <p class="education-date">2025</p>
-                        <p class="education-desc">
-                            Developed cross-platform mobile applications using Flutter, implemented modern UI/UX practices, integrated APIs, and gained practical experience in software development workflows.
-                        </p>
-                    </div>
-
-                    <div class="education-card">
-                        <div class="education-icon">💡</div>
-                        <h3>Technology & AI Learning</h3>
-                        <p class="education-school">Self-Learning & Academic Projects</p>
-                        <p class="education-date">2024 - 2026</p>
-                        <p class="education-desc">
-                            Built AI-powered platforms, IoT systems, mobile applications, and full-stack projects through continuous learning and hands-on implementation.
-                        </p>
-                    </div>
-                </div>
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+      <div class="container">
+        <h2 class="section-title reveal" data-key="about.title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p class="about-intro reveal" data-key="about.intro">Computer Engineering graduate...</p>
+            <p class="reveal" data-key="about.description">Throughout my academic...</p>
+            <div class="about-stats">
+              <div class="stat reveal">
+                <h3 data-count="2026" data-key="about.stats.gradValue">2026</h3>
+                <p data-key="about.stats.graduation">Graduation Year</p>
+              </div>
+              <div class="stat reveal">
+                <h3 data-key="about.stats.projectsValue">10+</h3>
+                <p data-key="about.stats.projects">Completed Projects</p>
+              </div>
+              <div class="stat reveal">
+                <h3 data-key="about.stats.techValue">15+</h3>
+                <p data-key="about.stats.technologies">Technologies & Tools</p>
+              </div>
             </div>
+          </div>
+
+          <div class="about-education">
+            <div class="education-card reveal">
+              <div class="education-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <h3 data-key="about.education.degree">B.Sc. in Computer Engineering</h3>
+              <p class="education-school" data-key="about.education.university">Al-Quds University, Palestine</p>
+              <p class="education-date" data-key="about.education.degreeDate">Graduated: June 2026</p>
+              <p class="education-desc" data-key="about.education.degreeDesc">Computer Engineering graduate...</p>
+            </div>
+            <div class="education-card reveal">
+              <div class="education-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              </div>
+              <h3 data-key="about.education.trainee">Software Development Trainee</h3>
+              <p class="education-school" data-key="about.education.company">Dimensions Info-tech - Ramallah</p>
+              <p class="education-date" data-key="about.education.traineeDate">2025</p>
+              <p class="education-desc" data-key="about.education.traineeDesc">Developed cross-platform...</p>
+            </div>
+            <div class="education-card reveal">
+              <div class="education-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>
+              </div>
+              <h3 data-key="about.education.learning">Technology & AI Learning</h3>
+              <p class="education-school" data-key="about.education.learningSchool">Self-Learning & Academic Projects</p>
+              <p class="education-date" data-key="about.education.learningDate">2024 - 2026</p>
+              <p class="education-desc" data-key="about.education.learningDesc">Built AI-powered platforms...</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section class="experience" id="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2025</span>
-                        <h3>Software Development Trainee</h3>
-                        <p class="timeline-company">Dimensions Info-tech</p>
-                        <ul class="timeline-list">
-                            <li>Developed Flutter mobile applications.</li>
-                            <li>Implemented responsive and user-friendly interfaces.</li>
-                            <li>Integrated REST APIs and backend services.</li>
-                            <li>Applied MVVM architecture principles.</li>
-                            <li>Participated in software testing and debugging.</li>
-                            <li>Collaborated within development teams.</li>
-                            <li>Followed modern software development practices.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2024 - Present</span>
-                        <h3>Freelance Developer</h3>
-                        <p class="timeline-company">Remote</p>
-                        <ul class="timeline-list">
-                            <li>Built responsive web applications.</li>
-                            <li>Developed full-stack software solutions.</li>
-                            <li>Integrated databases and third-party APIs.</li>
-                            <li>Designed user-focused interfaces and experiences.</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- EXPERIENCE -->
+    <section class="experience section" id="experience">
+      <div class="container">
+        <h2 class="section-title reveal" data-key="experience.title">Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date" data-key="experience.trainee.date">2025</span>
+              <h3 data-key="experience.trainee.position">Software Development Trainee</h3>
+              <p class="timeline-company" data-key="experience.trainee.company">Dimensions Info-tech</p>
+              <ul class="timeline-list" data-list="experience.trainee.tasks"></ul>
             </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date" data-key="experience.freelance.date">2024 - Present</span>
+              <h3 data-key="experience.freelance.position">Freelance Developer</h3>
+              <p class="timeline-company" data-key="experience.freelance.company">Remote</p>
+              <ul class="timeline-list" data-list="experience.freelance.tasks"></ul>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section class="projects" id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-
-            <div class="projects-grid">
-
-                <div class="project-card">
-                    <img src="images/pizza-go.png" alt="Pizza Go Project" class="project-image">
-                    <div class="project-header">
-                        <h3>Pizza Go</h3>
-                        <span class="project-tag">Full Stack | IoT | Graduation Project</span>
-                    </div>
-                    <p class="project-description">
-                        Smart pizza ordering and automated preparation system integrating online ordering, payment processing, PostgreSQL database management, MQTT communication, and ESP32-controlled hardware automation into one complete end-to-end solution.
-                    </p>
-                    <div class="project-tech">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>Node.js</span>
-                        <span>PostgreSQL</span>
-                        <span>Stripe</span>
-                        <span>MQTT</span>
-                        <span>ESP32</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Shaimaa-22/pizza-go-frontend" target="_blank" class="project-link">View Frontend</a>
-                        <a href="https://github.com/Shaimaa-22/pizza-go-backend" target="_blank" class="project-link">View Backend</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="images/imag.png" alt="Ideas Tracker Project" class="project-image">
-                    <div class="project-header">
-                        <h3>Ideas Tracker</h3>
-                        <span class="project-tag">AI | Voice Input | Firebase</span>
-                    </div>
-                    <p class="project-description">
-                        AI-powered platform for capturing, organizing, enhancing, and sharing ideas using voice input, intelligent assistance, mind maps, and community collaboration features.
-                    </p>
-                    <div class="project-tech">
-                        <span>JavaScript</span>
-                        <span>Firebase</span>
-                        <span>OpenAI</span>
-                        <span>Speech-to-Text</span>
-                        <span>Mind Maps</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Shaimaa-22/ideastracker" target="_blank" class="project-link">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="images/splash.jpg" alt="Time Capsule App" class="project-image">
-                    <div class="project-header">
-                        <h3>Time Capsule</h3>
-                        <span class="project-tag">Flutter | Mobile App</span>
-                    </div>
-                    <p class="project-description">
-                        Flutter application that allows users to create digital time capsules containing memories, messages, images, and files that automatically unlock at future dates.
-                    </p>
-                    <div class="project-tech">
-                        <span>Flutter</span>
-                        <span>Dart</span>
-                        <span>PostgreSQL</span>
-                        <span>Provider</span>
-                        <span>MVVM</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Shaimaa-22/time_capsule_app" target="_blank" class="project-link">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="images/cv.jpg" alt="CV Evaluation Project" class="project-image">
-                    <div class="project-header">
-                        <h3>CV Evaluation System</h3>
-                        <span class="project-tag">AI | NLP | Python</span>
-                    </div>
-                    <p class="project-description">
-                        AI-based system for evaluating resumes using Natural Language Processing and Machine Learning techniques to provide automated candidate assessment and scoring.
-                    </p>
-                    <div class="project-tech">
-                        <span>Python</span>
-                        <span>NLP</span>
-                        <span>Machine Learning</span>
-                        <span>FastAPI</span>
-                        <span>PyTorch</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Shaimaa-22/CV_Evaluation_Project" target="_blank" class="project-link">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="images/where.png" alt="Where Should I Go Project" class="project-image">
-                    <div class="project-header">
-                        <h3>Where Should I Go?</h3>
-                        <span class="project-tag">Recommendation Platform</span>
-                    </div>
-                    <p class="project-description">
-                        Smart recommendation platform that suggests destinations and activities based on user mood, preferences, available time, and location.
-                    </p>
-                    <div class="project-tech">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>Google Maps API</span>
-                        <span>OpenAI API</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Shaimaa-22/Where-Should-I-Go" target="_blank" class="project-link">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="images/logo (1).png" alt="Coffee Lab App" class="project-image">
-                    <div class="project-header">
-                        <h3>Coffee Lab</h3>
-                        <span class="project-tag">Flutter | Clean Architecture</span>
-                    </div>
-                    <p class="project-description">
-                        Flutter mobile application developed using MVVM and Clean Architecture principles, focusing on scalable mobile development and maintainable code structure.
-                    </p>
-                    <div class="project-tech">
-                        <span>Flutter</span>
-                        <span>Dart</span>
-                        <span>MVVM</span>
-                        <span>Clean Architecture</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Shaimaa-22/coffeelap" target="_blank" class="project-link">View Project</a>
-                    </div>
-                </div>
-
+    <!-- PROJECTS -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <h2 class="section-title reveal" data-key="projects.title">Featured Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card reveal" data-tilt>
+            <div class="project-img-wrap">
+              <img src="/images/pizza-go.png" alt="Pizza Go project" class="project-image" loading="lazy" />
             </div>
+            <div class="project-body">
+              <div class="project-header">
+                <h3 data-key="projects.pizzaGo.name">Pizza Go</h3>
+                <span class="project-tag" data-key="projects.pizzaGo.tag">Full Stack | IoT | Graduation Project</span>
+              </div>
+              <p class="project-description" data-key="projects.pizzaGo.description">Smart pizza ordering...</p>
+              <div class="project-tech">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span><span>PostgreSQL</span><span>Stripe</span><span>MQTT</span><span>ESP32</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Shaimaa-22/pizza-go-frontend" target="_blank" rel="noopener" class="project-link" data-key="projects.viewFrontend">View Frontend</a>
+                <a href="https://github.com/Shaimaa-22/pizza-go-backend" target="_blank" rel="noopener" class="project-link" data-key="projects.viewBackend">View Backend</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-tilt>
+            <div class="project-img-wrap">
+              <img src="/images/imag.png" alt="Ideas Tracker project" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-body">
+              <div class="project-header">
+                <h3 data-key="projects.ideasTracker.name">Ideas Tracker</h3>
+                <span class="project-tag" data-key="projects.ideasTracker.tag">AI | Voice Input | Firebase</span>
+              </div>
+              <p class="project-description" data-key="projects.ideasTracker.description">AI-powered platform...</p>
+              <div class="project-tech">
+                <span>JavaScript</span><span>Firebase</span><span>OpenAI</span><span>Speech-to-Text</span><span>Mind Maps</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Shaimaa-22/ideastracker" target="_blank" rel="noopener" class="project-link" data-key="projects.viewProject">View Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-tilt>
+            <div class="project-img-wrap">
+              <img src="/images/splash.jpg" alt="Time Capsule app" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-body">
+              <div class="project-header">
+                <h3 data-key="projects.timeCapsule.name">Time Capsule</h3>
+                <span class="project-tag" data-key="projects.timeCapsule.tag">Flutter | Mobile App</span>
+              </div>
+              <p class="project-description" data-key="projects.timeCapsule.description">Flutter application...</p>
+              <div class="project-tech">
+                <span>Flutter</span><span>Dart</span><span>PostgreSQL</span><span>Provider</span><span>MVVM</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Shaimaa-22/time_capsule_app" target="_blank" rel="noopener" class="project-link" data-key="projects.viewProject">View Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-tilt>
+            <div class="project-img-wrap">
+              <img src="/images/cv.jpg" alt="CV Evaluation project" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-body">
+              <div class="project-header">
+                <h3 data-key="projects.cvEvaluation.name">CV Evaluation System</h3>
+                <span class="project-tag" data-key="projects.cvEvaluation.tag">AI | NLP | Python</span>
+              </div>
+              <p class="project-description" data-key="projects.cvEvaluation.description">AI-based system...</p>
+              <div class="project-tech">
+                <span>Python</span><span>NLP</span><span>Machine Learning</span><span>FastAPI</span><span>PyTorch</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Shaimaa-22/CV_Evaluation_Project" target="_blank" rel="noopener" class="project-link" data-key="projects.viewProject">View Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-tilt>
+            <div class="project-img-wrap">
+              <img src="/images/where.png" alt="Where Should I Go project" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-body">
+              <div class="project-header">
+                <h3 data-key="projects.whereShouldIGo.name">Where Should I Go?</h3>
+                <span class="project-tag" data-key="projects.whereShouldIGo.tag">Recommendation Platform</span>
+              </div>
+              <p class="project-description" data-key="projects.whereShouldIGo.description">Smart recommendation...</p>
+              <div class="project-tech">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Google Maps API</span><span>OpenAI API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Shaimaa-22/Where-Should-I-Go" target="_blank" rel="noopener" class="project-link" data-key="projects.viewProject">View Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-tilt>
+            <div class="project-img-wrap">
+              <img src="/images/logo (1).png" alt="Coffee Lab app" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-body">
+              <div class="project-header">
+                <h3 data-key="projects.coffeeLab.name">Coffee Lab</h3>
+                <span class="project-tag" data-key="projects.coffeeLab.tag">Flutter | Clean Architecture</span>
+              </div>
+              <p class="project-description" data-key="projects.coffeeLab.description">Flutter mobile application...</p>
+              <div class="project-tech">
+                <span>Flutter</span><span>Dart</span><span>MVVM</span><span>Clean Architecture</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Shaimaa-22/coffeelap" target="_blank" rel="noopener" class="project-link" data-key="projects.viewProject">View Project</a>
+              </div>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section class="skills" id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">Dart</span>
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">C/C++</span>
-                        <span class="skill-item">PHP</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Frontend Development</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">HTML</span>
-                        <span class="skill-item">CSS</span>
-                        <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">Tailwind CSS</span>
-                        <span class="skill-item">Responsive Design</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Backend Development</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Node.js</span>
-                        <span class="skill-item">Express.js</span>
-                        <span class="skill-item">REST APIs</span>
-                        <span class="skill-item">JWT Authentication</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Mobile Development</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Flutter</span>
-                        <span class="skill-item">Dart</span>
-                        <span class="skill-item">Provider</span>
-                        <span class="skill-item">MVVM</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Databases & Cloud</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">PostgreSQL</span>
-                        <span class="skill-item">Firebase</span>
-                        <span class="skill-item">Firestore</span>
-                        <span class="skill-item">Cloudinary</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>AI & Machine Learning</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">OpenAI API</span>
-                        <span class="skill-item">Whisper API</span>
-                        <span class="skill-item">Speech-to-Text</span>
-                        <span class="skill-item">NLP</span>
-                        <span class="skill-item">Machine Learning</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>IoT & Embedded Systems</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">ESP32</span>
-                        <span class="skill-item">MQTT</span>
-                        <span class="skill-item">Arduino</span>
-                        <span class="skill-item">IoT Automation</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Tools & Practices</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Git/GitHub</span>
-                        <span class="skill-item">Vercel</span>
-                        <span class="skill-item">Render</span>
-                        <span class="skill-item">API Integration</span>
-                        <span class="skill-item">Clean Architecture</span>
-                        <span class="skill-item">Clean Code</span>
-                    </div>
-                </div>
+    <!-- SKILLS -->
+    <section class="skills section" id="skills">
+      <div class="container">
+        <h2 class="section-title reveal" data-key="skills.title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category reveal">
+            <h3 data-key="skills.programming">Programming Languages</h3>
+            <div class="skill-items">
+              <span class="skill-item">JavaScript</span><span class="skill-item">Dart</span><span class="skill-item">Python</span><span class="skill-item">C/C++</span><span class="skill-item">PHP</span>
             </div>
+          </div>
+          <div class="skill-category reveal">
+            <h3 data-key="skills.frontend">Frontend Development</h3>
+            <div class="skill-items">
+              <span class="skill-item">HTML</span><span class="skill-item">CSS</span><span class="skill-item">JavaScript</span><span class="skill-item">Tailwind CSS</span><span class="skill-item">Responsive Design</span>
+            </div>
+          </div>
+          <div class="skill-category reveal">
+            <h3 data-key="skills.backend">Backend Development</h3>
+            <div class="skill-items">
+              <span class="skill-item">Node.js</span><span class="skill-item">Express.js</span><span class="skill-item">REST APIs</span><span class="skill-item">JWT Authentication</span>
+            </div>
+          </div>
+          <div class="skill-category reveal">
+            <h3 data-key="skills.mobile">Mobile Development</h3>
+            <div class="skill-items">
+              <span class="skill-item">Flutter</span><span class="skill-item">Dart</span><span class="skill-item">Provider</span><span class="skill-item">MVVM</span>
+            </div>
+          </div>
+          <div class="skill-category reveal">
+            <h3 data-key="skills.databases">Databases & Cloud</h3>
+            <div class="skill-items">
+              <span class="skill-item">PostgreSQL</span><span class="skill-item">Firebase</span><span class="skill-item">Firestore</span><span class="skill-item">Cloudinary</span>
+            </div>
+          </div>
+          <div class="skill-category reveal">
+            <h3 data-key="skills.ai">AI & Machine Learning</h3>
+            <div class="skill-items">
+              <span class="skill-item">OpenAI API</span><span class="skill-item">Whisper API</span><span class="skill-item">Speech-to-Text</span><span class="skill-item">NLP</span><span class="skill-item">Machine Learning</span>
+            </div>
+          </div>
+          <div class="skill-category reveal">
+            <h3 data-key="skills.iot">IoT & Embedded Systems</h3>
+            <div class="skill-items">
+              <span class="skill-item">ESP32</span><span class="skill-item">MQTT</span><span class="skill-item">Arduino</span><span class="skill-item">IoT Automation</span>
+            </div>
+          </div>
+          <div class="skill-category reveal">
+            <h3 data-key="skills.tools">Tools & Practices</h3>
+            <div class="skill-items">
+              <span class="skill-item">Git/GitHub</span><span class="skill-item">Vercel</span><span class="skill-item">Render</span><span class="skill-item">API Integration</span><span class="skill-item">Clean Architecture</span><span class="skill-item">Clean Code</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p class="contact-intro">
-                        I am always open to discussing new projects, collaboration opportunities, and innovative ideas. Feel free to reach out.
-                    </p>
-
-                    <div class="contact-methods">
-                        <a href="mailto:shaimaadwedar03@gmail.com" class="contact-method">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>shaimaadwedar03@gmail.com</p>
-                            </div>
-                        </a>
-
-                        <a href="https://www.linkedin.com/in/shaimaa-dwedar-a31561335" target="_blank" class="contact-method">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>LinkedIn</h4>
-                                <p>Shaimaa Dwedar</p>
-                            </div>
-                        </a>
-                    </div>
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <h2 class="section-title reveal" data-key="contact.title">Contact</h2>
+        <div class="contact-content">
+          <div class="contact-info reveal">
+            <p class="contact-intro" data-key="contact.intro">I am always open...</p>
+            <div class="contact-methods">
+              <a href="mailto:shaimaadwedar03@gmail.com" class="contact-method">
+                <div class="contact-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 </div>
-
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                <div>
+                  <h4 data-key="contact.emailLabel">Email</h4>
+                  <p>shaimaadwedar03@gmail.com</p>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/shaimaa-dwedar-a31561335" target="_blank" rel="noopener" class="contact-method">
+                <div class="contact-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </div>
+                <div>
+                  <h4 data-key="contact.linkedinLabel">LinkedIn</h4>
+                  <p data-key="contact.linkedinValue">Shaimaa Dwedar</p>
+                </div>
+              </a>
             </div>
+          </div>
+
+          <form class="contact-form reveal" id="contact-form">
+            <div class="form-group">
+              <label for="name" data-key="contact.form.name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email" data-key="contact.form.email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message" data-key="contact.form.message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" data-key="contact.form.send">Send Message</button>
+          </form>
         </div>
+      </div>
     </section>
+  </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© 2026 Shaimaa Dwedar. All rights reserved.</p>
-
-            <div class="footer-social">
-                <a href="mailto:shaimaadwedar03@gmail.com" aria-label="Email">Email</a>
-                <a href="https://www.linkedin.com/in/shaimaa-dwedar-a31561335" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-                <a href="https://github.com/Shaimaa-22" target="_blank" aria-label="GitHub">GitHub</a>
-            </div>
-        </div>
-    </footer>
-
-    <div class="cv-modal" id="cv-modal">
-        <div class="cv-modal-content">
-            <button class="cv-modal-close" id="cv-modal-close">&times;</button>
-
-            <div class="cv-modal-header">
-                <h2>View CV</h2>
-            </div>
-
-            <div class="cv-modal-body">
-                <iframe id="cv-iframe" src="" frameborder="0"></iframe>
-
-                <div class="cv-modal-actions">
-                    <a href="#" class="btn btn-primary" id="download-cv" download>
-                        Download CV
-                    </a>
-                </div>
-            </div>
-        </div>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p data-key="footer.copyright">© 2026 Shaimaa Dwedar. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="mailto:shaimaadwedar03@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/shaimaa-dwedar-a31561335" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Shaimaa-22" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <!-- CV MODAL -->
+  <div class="cv-modal" id="cv-modal">
+    <div class="cv-modal-content">
+      <button class="cv-modal-close" id="cv-modal-close" aria-label="Close">&times;</button>
+      <div class="cv-modal-header">
+        <h2 data-key="cv.title">Curriculum Vitae</h2>
+      </div>
+      <div class="cv-modal-body">
+        <iframe id="cv-iframe" src="" title="CV" frameborder="0"></iframe>
+        <div class="cv-modal-actions">
+          <a href="#" class="btn btn-primary" id="download-cv" download data-key="cv.download">Download CV</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/script.js"></script>
 </body>
 
 </html>
