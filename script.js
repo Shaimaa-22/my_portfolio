@@ -1,5 +1,5 @@
-import arData from "./translations/ar.json"
-import enData from "./translations/en.json"
+import arData from "translations/ar.json"
+import enData from "translations/en.json"
 
 const translations = { ar: arData, en: enData }
 
