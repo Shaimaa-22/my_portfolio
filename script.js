@@ -292,7 +292,7 @@ function initCVModal() {
   const viewCvHero = document.getElementById("view-cv-hero")
   const closeBtn = document.getElementById("cv-modal-close")
   const downloadCv = document.getElementById("download-cv")
-  const cvPath = "/cv/Shaimaa_Dwedar_CV.pdf"
+  const cvPath = "/cv/Shaimaa_Dwedar.pdf"
 
   const open = (e) => {
     e.preventDefault()
@@ -317,7 +317,7 @@ function initCVModal() {
   })
   if (downloadCv) {
     downloadCv.href = cvPath
-    downloadCv.download = "Shaimaa_Dwedar_CV.pdf"
+    downloadCv.download = "Shaimaa_Dwedar.pdf"
   }
 }
 
