@@ -987,4 +987,22 @@ main, .nav, .footer { transition: opacity 0.3s ease, filter 0.3s ease; }
   .project-image {
     height: 220px;
   }
+}  /* Fix social icons overlap */
+.hero-social {
+    margin-bottom: 120px !important;
+    position: relative;
+    z-index: 10;
+}
+
+/* Fix About section position */
+.about {
+    padding-top: 120px !important;
+}
+
+/* Hide cursor effect on mobile */
+@media (max-width: 768px) {
+    .cursor-glow,
+    #cursor-glow {
+        display: none !important;
+    }
 }
