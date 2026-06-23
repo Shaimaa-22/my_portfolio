@@ -1,343 +1,408 @@
-import arData from "translations/ar.json"
-import enData from "translations/en.json"
+let translations = {};
+let currentLang = localStorage.getItem("language") || "en";
+let currentTheme = localStorage.getItem("theme") || "dark";
 
-const translations = { ar: arData, en: enData }
+async function loadTranslations() {
+  const ar = await fetch("./translations/ar.json").then((res) => res.json());
+  const en = await fetch("./translations/en.json").then((res) => res.json());
+  translations = { ar, en };
+}
 
-// Default language is English (LTR) unless the visitor previously chose otherwise.
-let currentLang = localStorage.getItem("language") || "en"
-let currentTheme = localStorage.getItem("theme") || "dark"
-
-/* ------------------------------------------------------------------ */
-/* Translations                                                        */
-/* ------------------------------------------------------------------ */
 function getTranslation(key, lang) {
-  const keys = key.split(".")
-  let value = translations[lang]
+  const keys = key.split(".");
+  let value = translations[lang];
+
   for (const k of keys) {
     if (value && value[k] !== undefined) {
-      value = value[k]
+      value = value[k];
     } else {
-      return key
+      return key;
     }
   }
-  return value
+
+  return value;
 }
 
 function updateContent(lang) {
-  // Simple text nodes
   document.querySelectorAll("[data-key]").forEach((el) => {
-    const key = el.getAttribute("data-key")
-    const translation = getTranslation(key, lang)
-    if (typeof translation !== "string") return
+    const key = el.getAttribute("data-key");
+    const translation = getTranslation(key, lang);
+
+    if (typeof translation !== "string") return;
+
     if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-      el.placeholder = translation
+      el.placeholder = translation;
     } else {
-      el.textContent = translation
+      el.textContent = translation;
     }
-  })
+  });
 
-  // List blocks (e.g. experience tasks)
   document.querySelectorAll("[data-list]").forEach((ul) => {
-    const key = ul.getAttribute("data-list")
-    const items = getTranslation(key, lang)
-    if (!Array.isArray(items)) return
-    ul.innerHTML = ""
-    items.forEach((text, i) => {
-      const li = document.createElement("li")
-      li.textContent = text
-      li.style.setProperty("--li-i", i)
-      ul.appendChild(li)
-    })
-  })
+    const key = ul.getAttribute("data-list");
+    const items = getTranslation(key, lang);
 
-  // Document title
-  document.title = getTranslation("meta.title", lang)
+    if (!Array.isArray(items)) return;
+
+    ul.innerHTML = "";
+
+    items.forEach((text, i) => {
+      const li = document.createElement("li");
+      li.textContent = text;
+      li.style.setProperty("--li-i", i);
+      ul.appendChild(li);
+    });
+  });
+
+  const title = getTranslation("meta.title", lang);
+  if (title) document.title = title;
 }
 
 function applyLanguage(lang, animate = false) {
-  const html = document.documentElement
+  const html = document.documentElement;
+  const langText = document.querySelector(".lang-text");
+
   if (lang === "en") {
-    html.setAttribute("lang", "en")
-    html.setAttribute("dir", "ltr")
-    document.querySelector(".lang-text").textContent = "ع"
+    html.setAttribute("lang", "en");
+    html.setAttribute("dir", "ltr");
+    if (langText) langText.textContent = "ع";
   } else {
-    html.setAttribute("lang", "ar")
-    html.setAttribute("dir", "rtl")
-    document.querySelector(".lang-text").textContent = "EN"
+    html.setAttribute("lang", "ar");
+    html.setAttribute("dir", "rtl");
+    if (langText) langText.textContent = "EN";
   }
 
   if (animate) {
-    document.body.classList.add("lang-switching")
+    document.body.classList.add("lang-switching");
+
     setTimeout(() => {
-      updateContent(lang)
-      document.body.classList.remove("lang-switching")
-    }, 220)
+      updateContent(lang);
+      document.body.classList.remove("lang-switching");
+    }, 220);
   } else {
-    updateContent(lang)
+    updateContent(lang);
   }
 }
 
-/* ------------------------------------------------------------------ */
-/* Theme                                                               */
-/* ------------------------------------------------------------------ */
 function applyTheme(theme) {
-  document.body.classList.toggle("light-mode", theme === "light")
+  document.body.classList.toggle("light-mode", theme === "light");
 }
 
-/* ------------------------------------------------------------------ */
-/* Init                                                                */
-/* ------------------------------------------------------------------ */
-document.addEventListener("DOMContentLoaded", () => {
-  applyTheme(currentTheme)
-  applyLanguage(currentLang)
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadTranslations();
 
-  initLoader()
-  initThemeToggle()
-  initLangToggle()
-  initNav()
-  initSmoothScroll()
-  initScrollEffects()
-  initReveal()
-  initTilt()
-  initCursorGlow()
-  initHeroParallax()
-  initCVModal()
-  initContactForm()
-})
+  applyTheme(currentTheme);
+  applyLanguage(currentLang);
 
-/* Loader */
+  initLoader();
+  initThemeToggle();
+  initLangToggle();
+  initNav();
+  initSmoothScroll();
+  initScrollEffects();
+  initReveal();
+  initTilt();
+  initCursorGlow();
+  initHeroParallax();
+  initCVModal();
+  initContactForm();
+});
+
 function initLoader() {
-  const loader = document.getElementById("loader")
-  if (!loader) return
+  const loader = document.getElementById("loader");
+  if (!loader) return;
+
   window.addEventListener("load", () => {
-    setTimeout(() => loader.classList.add("hidden"), 450)
-  })
-  // Fallback
-  setTimeout(() => loader.classList.add("hidden"), 1600)
+    setTimeout(() => loader.classList.add("hidden"), 450);
+  });
+
+  setTimeout(() => loader.classList.add("hidden"), 1600);
 }
 
-/* Theme toggle */
 function initThemeToggle() {
-  const themeToggle = document.getElementById("theme-toggle")
+  const themeToggle = document.getElementById("theme-toggle");
+  if (!themeToggle) return;
+
   themeToggle.addEventListener("click", () => {
-    currentTheme = document.body.classList.contains("light-mode") ? "dark" : "light"
-    applyTheme(currentTheme)
-    localStorage.setItem("theme", currentTheme)
-  })
+    currentTheme = document.body.classList.contains("light-mode")
+      ? "dark"
+      : "light";
+
+    applyTheme(currentTheme);
+    localStorage.setItem("theme", currentTheme);
+  });
 }
 
-/* Language toggle */
 function initLangToggle() {
-  const langToggle = document.getElementById("lang-toggle")
+  const langToggle = document.getElementById("lang-toggle");
+  if (!langToggle) return;
+
   langToggle.addEventListener("click", () => {
-    currentLang = currentLang === "ar" ? "en" : "ar"
-    applyLanguage(currentLang, true)
-    localStorage.setItem("language", currentLang)
-  })
+    currentLang = currentLang === "ar" ? "en" : "ar";
+    applyLanguage(currentLang, true);
+    localStorage.setItem("language", currentLang);
+  });
 }
 
-/* Mobile nav */
 function initNav() {
-  const navToggle = document.getElementById("nav-toggle")
-  const navMenu = document.getElementById("nav-menu")
+  const navToggle = document.getElementById("nav-toggle");
+  const navMenu = document.getElementById("nav-menu");
+
+  if (!navToggle || !navMenu) return;
+
   const setBars = (open) => {
-    const s = navToggle.querySelectorAll("span")
+    const s = navToggle.querySelectorAll("span");
+
+    if (s.length < 3) return;
+
     if (open) {
-      s[0].style.transform = "rotate(45deg) translate(5px, 5px)"
-      s[1].style.opacity = "0"
-      s[2].style.transform = "rotate(-45deg) translate(6px, -6px)"
+      s[0].style.transform = "rotate(45deg) translate(5px, 5px)";
+      s[1].style.opacity = "0";
+      s[2].style.transform = "rotate(-45deg) translate(6px, -6px)";
     } else {
-      s[0].style.transform = "none"
-      s[1].style.opacity = "1"
-      s[2].style.transform = "none"
+      s[0].style.transform = "none";
+      s[1].style.opacity = "1";
+      s[2].style.transform = "none";
     }
-  }
+  };
+
   navToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active")
-    setBars(navMenu.classList.contains("active"))
-  })
+    navMenu.classList.toggle("active");
+    setBars(navMenu.classList.contains("active"));
+  });
+
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", () => {
-      navMenu.classList.remove("active")
-      setBars(false)
-    })
-  })
+      navMenu.classList.remove("active");
+      setBars(false);
+    });
+  });
 }
 
-/* Smooth scroll */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      const href = this.getAttribute("href")
+      const href = this.getAttribute("href");
+
       if (href !== "#" && href.startsWith("#")) {
-        const target = document.querySelector(href)
+        const target = document.querySelector(href);
+
         if (target) {
-          e.preventDefault()
-          target.scrollIntoView({ behavior: "smooth", block: "start" })
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
         }
       }
-    })
-  })
+    });
+  });
 }
 
-/* Nav scroll state, active link + scroll progress */
 function initScrollEffects() {
-  const nav = document.getElementById("nav")
-  const progress = document.getElementById("scroll-progress")
-  const sections = document.querySelectorAll("section[id]")
-  const navLinks = document.querySelectorAll(".nav-link")
+  const nav = document.getElementById("nav");
+  const progress = document.getElementById("scroll-progress");
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
 
   const onScroll = () => {
-    const y = window.pageYOffset
-    nav.classList.toggle("scrolled", y > 60)
+    const y = window.pageYOffset;
 
-    const h = document.documentElement.scrollHeight - window.innerHeight
-    progress.style.width = `${(y / h) * 100}%`
+    if (nav) nav.classList.toggle("scrolled", y > 60);
 
-    let current = ""
+    if (progress) {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = h > 0 ? `${(y / h) * 100}%` : "0%";
+    }
+
+    let current = "";
+
     sections.forEach((section) => {
-      if (y >= section.offsetTop - 220) current = section.getAttribute("id")
-    })
+      if (y >= section.offsetTop - 220) {
+        current = section.getAttribute("id");
+      }
+    });
+
     navLinks.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === `#${current}`)
-    })
-  }
-  window.addEventListener("scroll", onScroll, { passive: true })
-  onScroll()
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === `#${current}`
+      );
+    });
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 }
 
-/* Reveal on scroll with stagger */
 function initReveal() {
-  const els = document.querySelectorAll(".reveal")
+  const els = document.querySelectorAll(".reveal");
+
+  if (!els.length) return;
+
   const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Stagger siblings inside the same parent group
-          const parent = entry.target.parentElement
-          const group = parent ? [...parent.querySelectorAll(":scope > .reveal")] : [entry.target]
-          const idx = group.indexOf(entry.target)
-          entry.target.style.transitionDelay = `${Math.max(0, idx) * 80}ms`
-          entry.target.classList.add("in-view")
-          obs.unobserve(entry.target)
-        }
-      })
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
-  )
-  els.forEach((el) => observer.observe(el))
+          const parent = entry.target.parentElement;
+          const group = parent
+            ? [...parent.querySelectorAll(":scope > .reveal")]
+            : [entry.target];
 
-  // Safety: reveal anything still hidden after a while
-  setTimeout(() => els.forEach((el) => el.classList.add("in-view")), 2500)
+          const idx = group.indexOf(entry.target);
+
+          entry.target.style.transitionDelay = `${Math.max(0, idx) * 80}ms`;
+          entry.target.classList.add("in-view");
+
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -60px 0px",
+    }
+  );
+
+  els.forEach((el) => observer.observe(el));
+
+  setTimeout(() => {
+    els.forEach((el) => el.classList.add("in-view"));
+  }, 2500);
 }
 
-/* 3D tilt for project cards */
 function initTilt() {
-  const cards = document.querySelectorAll("[data-tilt]")
-  const isTouch = window.matchMedia("(hover: none)").matches
-  if (isTouch) return
+  const cards = document.querySelectorAll("[data-tilt]");
+  const isTouch = window.matchMedia("(hover: none)").matches;
+
+  if (isTouch) return;
+
   cards.forEach((card) => {
     card.addEventListener("mousemove", (e) => {
-      const r = card.getBoundingClientRect()
-      const px = (e.clientX - r.left) / r.width
-      const py = (e.clientY - r.top) / r.height
-      const rx = (py - 0.5) * -10
-      const ry = (px - 0.5) * 12
-      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`
-      card.style.setProperty("--mx", `${px * 100}%`)
-      card.style.setProperty("--my", `${py * 100}%`)
-    })
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+
+      const rx = (py - 0.5) * -10;
+      const ry = (px - 0.5) * 12;
+
+      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+      card.style.setProperty("--mx", `${px * 100}%`);
+      card.style.setProperty("--my", `${py * 100}%`);
+    });
+
     card.addEventListener("mouseleave", () => {
-      card.style.transform = ""
-    })
-  })
+      card.style.transform = "";
+    });
+  });
 }
 
-/* Cursor glow */
 function initCursorGlow() {
-  const glow = document.getElementById("cursor-glow")
-  if (!glow || window.matchMedia("(hover: none)").matches) return
-  let raf = null
+  const glow = document.getElementById("cursor-glow");
+
+  if (!glow || window.matchMedia("(hover: none)").matches) return;
+
+  let raf = null;
+
   window.addEventListener("mousemove", (e) => {
-    if (raf) return
+    if (raf) return;
+
     raf = requestAnimationFrame(() => {
-      glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
-      raf = null
-    })
-  })
+      glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      raf = null;
+    });
+  });
 }
 
-/* Hero parallax */
 function initHeroParallax() {
-  const content = document.querySelector(".hero-content")
-  const visual = document.querySelector(".hero-visual")
+  const content = document.querySelector(".hero-content");
+  const visual = document.querySelector(".hero-visual");
+
   window.addEventListener(
     "scroll",
     () => {
-      const y = window.pageYOffset
+      const y = window.pageYOffset;
+
       if (y < window.innerHeight && content && visual) {
-        content.style.transform = `translateY(${y * 0.18}px)`
-        visual.style.transform = `translateY(${y * 0.32}px)`
+        content.style.transform = `translateY(${y * 0.18}px)`;
+        visual.style.transform = `translateY(${y * 0.32}px)`;
       }
     },
-    { passive: true },
-  )
+    { passive: true }
+  );
 }
 
-/* CV modal */
 function initCVModal() {
-  const cvModal = document.getElementById("cv-modal")
-  const cvIframe = document.getElementById("cv-iframe")
-  const viewCvBtn = document.getElementById("view-cv-btn")
-  const viewCvHero = document.getElementById("view-cv-hero")
-  const closeBtn = document.getElementById("cv-modal-close")
-  const downloadCv = document.getElementById("download-cv")
-  const cvPath = "/cv/Shaimaa_Dwedar.pdf"
+  const cvModal = document.getElementById("cv-modal");
+  const cvIframe = document.getElementById("cv-iframe");
+  const viewCvBtn = document.getElementById("view-cv-btn");
+  const viewCvHero = document.getElementById("view-cv-hero");
+  const closeBtn = document.getElementById("cv-modal-close");
+  const downloadCv = document.getElementById("download-cv");
+
+  const cvPath = "./cv/Shaimaa_Dwedar.pdf";
+
+  if (!cvModal || !cvIframe) return;
 
   const open = (e) => {
-    e.preventDefault()
-    cvModal.classList.add("active")
-    cvIframe.src = cvPath
-    document.body.style.overflow = "hidden"
-  }
-  const close = () => {
-    cvModal.classList.remove("active")
-    cvIframe.src = ""
-    document.body.style.overflow = ""
-  }
+    e.preventDefault();
+    cvModal.classList.add("active");
+    cvIframe.src = cvPath;
+    document.body.style.overflow = "hidden";
+  };
 
-  if (viewCvBtn) viewCvBtn.addEventListener("click", open)
-  if (viewCvHero) viewCvHero.addEventListener("click", open)
-  if (closeBtn) closeBtn.addEventListener("click", close)
+  const close = () => {
+    cvModal.classList.remove("active");
+    cvIframe.src = "";
+    document.body.style.overflow = "";
+  };
+
+  if (viewCvBtn) viewCvBtn.addEventListener("click", open);
+  if (viewCvHero) viewCvHero.addEventListener("click", open);
+  if (closeBtn) closeBtn.addEventListener("click", close);
+
   cvModal.addEventListener("click", (e) => {
-    if (e.target === cvModal) close()
-  })
+    if (e.target === cvModal) close();
+  });
+
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && cvModal.classList.contains("active")) close()
-  })
+    if (e.key === "Escape" && cvModal.classList.contains("active")) {
+      close();
+    }
+  });
+
   if (downloadCv) {
-    downloadCv.href = cvPath
-    downloadCv.download = "Shaimaa_Dwedar.pdf"
+    downloadCv.href = cvPath;
+    downloadCv.download = "Shaimaa_Dwedar.pdf";
   }
 }
 
-/* Contact form -> WhatsApp */
 function initContactForm() {
-  const form = document.getElementById("contact-form")
-  if (!form) return
+  const form = document.getElementById("contact-form");
+
+  if (!form) return;
+
   form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    const name = document.getElementById("name").value
-    const email = document.getElementById("email").value
-    const message = document.getElementById("message").value
-    const phoneNumber = "972594608763"
-    const text = `Hi, I'm ${name}\nEmail: ${email}\nMessage:\n${message}`
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`
+    e.preventDefault();
+
+    const name = document.getElementById("name")?.value || "";
+    const email = document.getElementById("email")?.value || "";
+    const message = document.getElementById("message")?.value || "";
+
+    const phoneNumber = "972594608763";
+
+    const text = `Hi, I'm ${name}\nEmail: ${email}\nMessage:\n${message}`;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      text
+    )}`;
+
     const successMessage = getTranslation("contact.form.success", currentLang)
       .replace("{name}", name)
-      .replace("{email}", email)
-    alert(successMessage)
-    window.open(whatsappURL, "_blank")
-    form.reset()
-  })
+      .replace("{email}", email);
+
+    alert(successMessage);
+
+    window.open(whatsappURL, "_blank");
+
+    form.reset();
+  });
 }
