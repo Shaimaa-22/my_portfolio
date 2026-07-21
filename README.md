@@ -201,4 +201,4 @@ https://shaimaa-22.github.io/my_portfolio/
 
 ---
 
-If you find this portfolio useful, feel free to star the repository.
+Made with a lot of love.
