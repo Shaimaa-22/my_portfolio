@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initTilt();
   initCursorGlow();
   initHeroParallax();
+  initHeroTilt3D();
   initCVModal();
   initContactForm();
 });
@@ -329,6 +330,30 @@ function initHeroParallax() {
     },
     { passive: true }
   );
+}
+
+function initHeroTilt3D() {
+  const card = document.querySelector(".hero-card");
+  const inner = document.querySelector(".hero-card-inner");
+
+  if (!card || !inner || window.matchMedia("(hover: none)").matches) return;
+
+  card.addEventListener("mousemove", (e) => {
+    const r = card.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+
+    const rx = (py - 0.5) * -18;
+    const ry = (px - 0.5) * 24;
+
+    inner.style.setProperty("--tilt-x", `${rx}deg`);
+    inner.style.setProperty("--tilt-y", `${ry}deg`);
+  });
+
+  card.addEventListener("mouseleave", () => {
+    inner.style.setProperty("--tilt-x", "0deg");
+    inner.style.setProperty("--tilt-y", "0deg");
+  });
 }
 
 function initCVModal() {
