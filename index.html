@@ -117,10 +117,12 @@
             <div class="hero-card-inner">
               <div class="hero-avatar">SD</div>
               <div class="hero-card-glow"></div>
-              <div class="orbit orbit-1"><span>Flutter</span></div>
-              <div class="orbit orbit-2"><span>AI</span></div>
-              <div class="orbit orbit-3"><span>IoT</span></div>
-              <div class="orbit orbit-4"><span>Node.js</span></div>
+              <div class="orbit-system">
+                <div class="orbit orbit-1"><span>Flutter</span></div>
+                <div class="orbit orbit-2"><span>AI</span></div>
+                <div class="orbit orbit-3"><span>IoT</span></div>
+                <div class="orbit orbit-4"><span>Node.js</span></div>
+              </div>
             </div>
           </div>
         </div>
@@ -183,6 +185,15 @@
               <p class="education-date" data-key="about.education.learningDate">2024 - 2026</p>
               <p class="education-desc" data-key="about.education.learningDesc">Built AI-powered platforms...</p>
             </div>
+            <div class="education-card reveal">
+              <div class="education-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg>
+              </div>
+              <h3 data-key="about.education.certsTitle">Certifications & Training</h3>
+              <p class="education-school" data-key="about.education.certsSchool">Udacity · The Hope International</p>
+              <p class="education-date" data-key="about.education.certsDate">Front-End Nanodegree · Python & ML</p>
+              <p class="education-desc" data-key="about.education.certsDesc">Structured training...</p>
+            </div>
           </div>
         </div>
       </div>
@@ -221,6 +232,42 @@
     <h2 class="section-title reveal" data-key="projects.title">Featured Projects</h2>
 
     <div class="projects-grid">
+
+      <article class="project-card reveal" data-tilt>
+        <div class="project-img-wrap qvista-visual">
+          <svg class="qvista-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="qvGlow" cx="50%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="var(--primary)" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="var(--primary)" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#qvGlow)"/>
+            <g stroke="var(--primary)" stroke-width="1.5" fill="none" opacity="0.9">
+              <path d="M120 190 L120 120 Q120 90 150 90 L250 90 Q280 90 280 120 L280 190" />
+              <path d="M150 90 Q150 55 200 40 Q250 55 250 90" />
+              <line x1="90" y1="190" x2="310" y2="190" />
+              <line x1="160" y1="190" x2="160" y2="140" />
+              <line x1="200" y1="190" x2="200" y2="130" />
+              <line x1="240" y1="190" x2="240" y2="140" />
+            </g>
+            <circle class="qv-node" cx="200" cy="40" r="3" fill="var(--accent)" />
+            <circle class="qv-node" cx="120" cy="120" r="3" fill="var(--accent)" />
+            <circle class="qv-node" cx="280" cy="120" r="3" fill="var(--accent)" />
+            <line class="qv-scan" x1="70" y1="30" x2="330" y2="30" stroke="var(--accent)" stroke-width="1.5" opacity="0.75"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-header">
+            <h3 data-key="projects.qvista.name">QVista AI</h3>
+            <span class="project-tag" data-key="projects.qvista.tag">Hackathon | RAG | AI Vision</span>
+          </div>
+          <p class="project-description" data-key="projects.qvista.description">Smart Jerusalem tourism platform...</p>
+          <div class="project-tech">
+            <span>RAG</span><span>AI Vision</span><span>LLM Personalization</span><span>Landmark Recognition</span>
+          </div>
+        </div>
+      </article>
 
       <article class="project-card reveal" data-tilt>
         <div class="project-img-wrap">
@@ -355,7 +402,7 @@
           <div class="skill-category reveal">
             <h3 data-key="skills.frontend">Frontend Development</h3>
             <div class="skill-items">
-              <span class="skill-item">HTML</span><span class="skill-item">CSS</span><span class="skill-item">JavaScript</span><span class="skill-item">Tailwind CSS</span><span class="skill-item">Responsive Design</span>
+              <span class="skill-item">HTML</span><span class="skill-item">CSS</span><span class="skill-item">JavaScript</span><span class="skill-item">Tailwind CSS</span><span class="skill-item">Bootstrap</span><span class="skill-item">Responsive Design</span>
             </div>
           </div>
           <div class="skill-category reveal">
@@ -379,7 +426,13 @@
           <div class="skill-category reveal">
             <h3 data-key="skills.ai">AI & Machine Learning</h3>
             <div class="skill-items">
-              <span class="skill-item">OpenAI API</span><span class="skill-item">Whisper API</span><span class="skill-item">Speech-to-Text</span><span class="skill-item">NLP</span><span class="skill-item">Machine Learning</span>
+              <span class="skill-item">OpenAI API</span><span class="skill-item">Whisper API</span><span class="skill-item">Speech-to-Text</span><span class="skill-item">NLP</span><span class="skill-item">Machine Learning</span><span class="skill-item">Chatbot Integration</span>
+            </div>
+          </div>
+          <div class="skill-category reveal">
+            <h3 data-key="skills.softEng">Software Engineering</h3>
+            <div class="skill-items">
+              <span class="skill-item">OOP</span><span class="skill-item">Data Structures & Algorithms</span><span class="skill-item">SOLID Principles</span><span class="skill-item">Agile/Scrum</span>
             </div>
           </div>
           <div class="skill-category reveal">
