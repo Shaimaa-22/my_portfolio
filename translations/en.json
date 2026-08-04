@@ -44,7 +44,11 @@
       "learning": "Technology & AI Learning",
       "learningSchool": "Self-Learning & Academic Projects",
       "learningDate": "2024 - 2026",
-      "learningDesc": "Built AI-powered platforms, IoT systems, mobile applications, and full-stack projects through continuous learning and hands-on implementation."
+      "learningDesc": "Built AI-powered platforms, IoT systems, mobile applications, and full-stack projects through continuous learning and hands-on implementation.",
+      "certsTitle": "Certifications & Training",
+      "certsSchool": "Udacity · The Hope International",
+      "certsDate": "Front-End Nanodegree · Python & ML",
+      "certsDesc": "Structured training strengthening front-end engineering fundamentals and applied Python & Machine Learning skills."
     }
   },
   "experience": {
@@ -64,14 +68,14 @@
       ]
     },
     "freelance": {
-      "date": "2024 - Present",
-      "position": "Freelance Developer",
-      "company": "Remote",
+      "date": "2025 - Present",
+      "position": "Freelance Software & IoT Engineer",
+      "company": "Self-Employed",
       "tasks": [
-        "Built responsive web applications.",
-        "Developed full-stack software solutions.",
-        "Integrated databases and third-party APIs.",
-        "Designed user-focused interfaces and experiences."
+        "Developed a web-based control interface for an industrial inverter, communicating in real time over MQTT.",
+        "Designed hardware and control electronics for a sugar-processing machine, paired with a real-time monitoring website.",
+        "Built a bilingual (Arabic/English) corporate website with a structured client-inquiry workflow.",
+        "Delivered complete freelance projects end-to-end — from embedded hardware to web interfaces to client communication."
       ]
     }
   },
@@ -102,8 +106,13 @@
     },
     "whereShouldIGo": {
       "name": "Where Should I Go?",
-      "tag": "Recommendation Platform",
-      "description": "Smart recommendation platform that suggests destinations and activities based on user mood, preferences, available time, and location."
+      "tag": "AI Tourism Platform | Full-Stack",
+      "description": "Full-stack AI-powered tourism platform, built across 14 development phases, that recommends destinations and experiences based on mood, time, and location — combining geolocation, mapping, and OpenAI-driven personalization, with an ongoing focus on production-grade reliability."
+    },
+    "qvista": {
+      "name": "QVista AI",
+      "tag": "Hackathon | RAG | AI Vision",
+      "description": "Smart Jerusalem tourism platform built for a hackathon, combining RAG-based personalized recommendations, AI-powered landmark recognition, and a \"Hidden Jerusalem\" feature that surfaces stories and places beyond the usual map."
     },
     "coffeeLab": {
       "name": "Coffee Lab",
@@ -120,6 +129,7 @@
     "databases": "Databases & Cloud",
     "ai": "AI & Machine Learning",
     "iot": "IoT & Embedded Systems",
+    "softEng": "Software Engineering",
     "tools": "Tools & Practices"
   },
   "contact": {
