@@ -427,7 +427,6 @@ function initContactForm() {
     alert(successMessage);
 
     window.open(whatsappURL, "_blank");
-
     form.reset();
   });
 }
