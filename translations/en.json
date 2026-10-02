@@ -1,7 +1,6 @@
 {
-  
   "meta": {
-    "title": "Shaimaa Dwedar — Full-Stack & Flutter Developer"
+    "title": "Shaimaa Dwedar | Computer & Software Engineer"
   },
   "nav": {
     "home": "Home",
@@ -13,30 +12,23 @@
     "viewCV": "View CV"
   },
   "hero": {
-    "greeting": "Hello, I'm",
-    "name": "Shaimaa Dwedar",
-    "subtitle": "Computer Engineering Graduate",
-    "description": "Full-Stack Developer, Flutter Developer, and AI & IoT Enthusiast building intelligent web applications, mobile solutions, AI-powered platforms, and embedded systems that solve real-world problems.",
-    "exploreProjects": "Explore Projects",
+    "greeting": "SHAIMAA DWEDAR / COMPUTER ENGINEER",
+    "name": "Building software, intelligent systems & connected devices.",
+    "description": "From business websites and backend services to AI applications and embedded devices. I build practical systems with clear interfaces and considered technical details.",
+    "exploreProjects": "View my work",
     "contactMe": "Contact Me",
-    "viewCV": "View CV"
+    "viewCV": "View CV",
+    "location": "BASED IN PALESTINE",
+    "focus": "From an idea to a working product."
   },
   "about": {
     "title": "About Me",
-    "intro": "Computer Engineering graduate with hands-on experience in Full-Stack Development, Flutter Applications, Artificial Intelligence, and IoT Systems.",
-    "description": "Throughout my academic and personal projects, I have designed and developed complete software solutions ranging from responsive web applications and Flutter mobile apps to AI-powered platforms and ESP32-based automation systems. I enjoy transforming ideas into practical products through clean architecture, scalable backend systems, modern technologies, and user-focused design.",
-    "stats": {
-      "gradValue": "2026",
-      "graduation": "Graduation Year",
-      "projectsValue": "10+",
-      "projects": "Completed Projects",
-      "techValue": "15+",
-      "technologies": "Technologies & Tools"
-    },
+    "intro": "A Computer Engineering graduate from Al-Quds University, working across software and connected systems.",
+    "description": "I build business websites, backend services, Flutter applications and systems that connect to hardware. I care about structured code, understanding failures and the experience of using a product.",
     "education": {
       "degree": "B.Sc. in Computer Engineering",
       "university": "Al-Quds University, Palestine",
-      "degreeDate": "Graduated: June 2026",
+      "degreeDate": "September 2021 – June 2026",
       "degreeDesc": "Computer Engineering graduate with hands-on experience in building full-stack web applications, mobile solutions, AI-powered platforms, and IoT systems.",
       "trainee": "Software Development Trainee",
       "company": "Dimensions Info-tech - Ramallah",
@@ -48,52 +40,65 @@
       "learningDesc": "Built AI-powered platforms, IoT systems, mobile applications, and full-stack projects through continuous learning and hands-on implementation.",
       "certsTitle": "Certifications & Training",
       "certsSchool": "Udacity · The Hope International",
-      "certsDate": "Front-End Nanodegree · Python & ML",
+      "certsDate": "Udacity · 2024 / The Hope · 2022",
       "certsDesc": "Structured training strengthening front-end engineering fundamentals and applied Python & Machine Learning skills."
     }
   },
   "experience": {
     "title": "Experience",
     "trainee": {
-      "date": "2025",
+      "date": "Summer 2025",
       "position": "Software Development Trainee",
-      "company": "Dimensions Info-tech",
+      "company": "Dimensions Info-tech, Ramallah",
       "tasks": [
-        "Developed Flutter mobile applications.",
-        "Implemented responsive and user-friendly interfaces.",
-        "Integrated REST APIs and backend services.",
-        "Applied MVVM architecture principles.",
-        "Participated in software testing and debugging.",
-        "Collaborated within development teams.",
-        "Followed modern software development practices."
+        "Developed Flutter features using MVVM in a PostgreSQL-backed system.",
+        "Collaborated in a structured team workflow with professional coding and architecture practices."
       ]
     },
     "freelance": {
-      "date": "2025 - Present",
+      "date": "2026 – Present",
       "position": "Freelance Software & IoT Engineer",
-      "company": "Self-Employed",
+      "company": "Self-employed / Remote",
       "tasks": [
-        "Developed a web-based control interface for an industrial inverter, communicating in real time over MQTT.",
-        "Designed hardware and control electronics for a sugar-processing machine, paired with a real-time monitoring website.",
-        "Built a bilingual (Arabic/English) corporate website with a structured client-inquiry workflow.",
-        "Delivered complete freelance projects end-to-end — from embedded hardware to web interfaces to client communication."
+        "Built Power’s multilingual business website, searchable product catalog, administration API, and Excel import workflow.",
+        "Built a web-based inverter control interface and integrated real-time device communication.",
+        "Connected web interfaces with backend APIs and embedded hardware using MQTT.",
+        "Worked across requirements, implementation, and client communication."
       ]
     }
   },
   "projects": {
-    "title": "Featured Projects",
+    "title": "Client work & selected projects.",
     "viewFrontend": "View Frontend",
     "viewBackend": "View Backend",
     "viewProject": "View Project",
     "pizzaGo": {
       "name": "Pizza Go",
-      "tag": "Full Stack | IoT | Graduation Project",
-      "description": "Smart pizza ordering and automated preparation system integrating online ordering, payment processing, PostgreSQL database management, MQTT communication, and ESP32-controlled hardware automation into one complete end-to-end solution."
+      "tag": "GRADUATION PROJECT / FULL-STACK & IoT",
+      "description": "A smart pizza-ordering experience connected to an automated preparation system. It connects customer ordering and payment with a queue of instructions for ESP32-controlled hardware.",
+      "scope": "Integrated web, backend & hardware project",
+      "implementation": "Pizza customization, Stripe test payments, PostgreSQL order storage, MQTT communication, machine heartbeat monitoring, and order tracking.",
+      "case": {
+        "problem": "Online ordering must connect to the sequence of operations in an automated preparation machine.",
+        "architecture": "Web client → Express / PostgreSQL → order queue → MQTT / ESP32; Stripe handles test payments.",
+        "contribution": "Designed the system and programmed two ESP32 controllers for linear actuators, stepper motors, relays, a conveyor belt and a sauce pump, integrated with the backend.",
+        "challenge": "Coordinated production with a finite-state machine and heartbeat monitoring; debugged hardware, firmware and communication, and tested the complete system.",
+        "result": "An integrated graduation-project workflow from pizza customization to preparation-status tracking."
+      }
     },
     "ideasTracker": {
       "name": "Ideas Tracker",
-      "tag": "AI | Voice Input | Firebase",
-      "description": "AI-powered platform for capturing, organizing, enhancing, and sharing ideas using voice input, intelligent assistance, mind maps, and community collaboration features."
+      "tag": "WEB & FLUTTER / VOICE & AI",
+      "description": "An idea workspace that turns text and voice notes into organized ideas, with AI assistance, mind maps, and communities for sharing and discussing them.",
+      "scope": "Flutter application & AI integration",
+      "implementation": "Provider-based view models, SQLite for local ideas, PostgreSQL synchronization, speech-to-text, and AI-powered idea enhancement.",
+      "case": {
+        "problem": "Ideas captured in scattered text and voice notes need a place to develop and discuss them.",
+        "architecture": "Web version: Web Speech API, OpenAI and Firebase. Available Flutter codebase: Provider, SQLite, PostgreSQL and AI services.",
+        "contribution": "Built voice-based idea capture and AI organization; the linked repository presents the Flutter implementation with local storage and community features.",
+        "challenge": "Coordinating local ideas and remote synchronization alongside voice input and community updates.",
+        "result": "A Flutter codebase with idea editing, AI enhancement, mind maps and community discussions."
+      }
     },
     "timeCapsule": {
       "name": "Time Capsule",
@@ -107,8 +112,8 @@
     },
     "whereShouldIGo": {
       "name": "Where Should I Go?",
-      "tag": "AI Tourism Platform | Full-Stack",
-      "description": "Full-stack AI-powered tourism platform, built across 14 development phases, that recommends destinations and experiences based on mood, time, and location — combining geolocation, mapping, and OpenAI-driven personalization, with an ongoing focus on production-grade reliability."
+      "tag": "LOCATION / WEB APPLICATION",
+      "description": "A location-based recommendation website that helps users discover nearby places based on mood, available time, and budget, using Node.js and the Geoapify Places API."
     },
     "qvista": {
       "name": "QVista AI",
@@ -119,7 +124,49 @@
       "name": "Coffee Lab",
       "tag": "Flutter | Clean Architecture",
       "description": "Flutter mobile application developed using MVVM and Clean Architecture principles, focusing on scalable mobile development and maintainable code structure."
-    }
+    },
+    "eyebrow": "01 / SELECTED WORK",
+    "intro": "Freelance projects for real business needs, alongside my work in AI applications and connected systems.",
+    "sourceUnavailable": "Source currently unavailable",
+    "power": {
+      "name": "Power — Engineering & Electrical Solutions",
+      "tag": "FREELANCE / MULTILINGUAL BUSINESS PLATFORM",
+      "description": "A multilingual website and product catalog for an engineering and electrical solutions company, covering industrial and residential electricity, solar energy, and IoT services.",
+      "scope": "React website, product catalog & administration API",
+      "implementation": "Arabic, English and Hebrew layouts; searchable products and categories; an administration interface and Excel import with images. Built with React, Vite, Hono and Cloudflare D1.",
+      "case": {
+        "problem": "A company needs a clear way to present its services and maintain a multilingual product catalog.",
+        "architecture": "React / Vite → Hono API → Cloudflare D1; images in Backblaze B2.",
+        "contribution": "Freelance development of the company website and its catalog and administration workflow.",
+        "challenge": "Supporting RTL and LTR layouts and importing product data and embedded images from Excel.",
+        "result": "A published company website with service discovery, product search and a content administration workflow."
+      }
+    },
+    "inverter": {
+      "name": "Inverter Control",
+      "tag": "FREELANCE / WITH POWER, FOR RIFT VALLEY",
+      "description": "A web-based system for monitoring and controlling an ESP32-connected inverter, connecting the operator interface to the device through a Node.js backend and MQTT.",
+      "scope": "Web interface, backend integration & IoT communication",
+      "implementation": "Live status over WebSocket, tracked control commands, role-based access, and PostgreSQL-backed command and audit logs.",
+      "case": {
+        "problem": "Operators need a web interface to observe device status and follow the outcome of remote commands.",
+        "architecture": "Browser → Node.js / Express → PostgreSQL + MQTT → ESP32; WebSocket returns live updates.",
+        "contribution": "Built the inverter backend with MQTT over TLS, HttpOnly authentication cookies, role-based access, audit logs and command acknowledgement validation.",
+        "challenge": "Tracking command acknowledgements, timeouts and offline devices while separating operator and administrator access.",
+        "result": "An implemented control workflow with command history, device status and audit logging."
+      }
+    },
+    "scopeLabel": "Project scope",
+    "implementationLabel": "What it brings together",
+    "more": "More explorations",
+    "viewLive": "Visit website",
+    "featured": "FEATURED PROJECT / CLIENT WORK",
+    "caseStudy": "Explore case study",
+    "problem": "Problem",
+    "architecture": "Architecture",
+    "contribution": "My contribution",
+    "challenge": "Engineering challenge",
+    "result": "What was built"
   },
   "skills": {
     "title": "Technical Skills",
@@ -134,24 +181,33 @@
     "tools": "Tools & Practices"
   },
   "contact": {
-    "title": "Contact",
-    "intro": "I am always open to discussing new projects, collaboration opportunities, and innovative ideas. Feel free to reach out.",
+    "title": "Have a project in mind?",
+    "intro": "For a website, application or connected system, let’s talk.",
     "emailLabel": "Email",
     "linkedinLabel": "LinkedIn",
-    "linkedinValue": "Shaimaa Dwedar",
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "send": "Send Message",
-      "success": "Thank you {name}! Your message will be sent to my WhatsApp, and I will contact you soon at {email}."
-    }
+    "linkedinValue": "Shaimaa Dwedar"
   },
   "cv": {
     "title": "Curriculum Vitae",
     "download": "Download CV"
   },
   "footer": {
-    "copyright": "© 2026 Shaimaa Dwedar. All rights reserved."
+    "copyright": "© 2026 Shaimaa Dwedar. All rights reserved.",
+    "role": "Computer & Software Engineer"
+  },
+  "approach": {
+    "title": "From requirements to working systems.",
+    "build": "Build",
+    "buildText": "Turn requirements into interfaces, services and devices that work together.",
+    "debug": "Debug",
+    "debugText": "Follow state and logs to understand why failures happen.",
+    "improve": "Improve",
+    "improveText": "Refine code structure, interaction and responsiveness.",
+    "ship": "Ship",
+    "shipText": "Connect the parts and check the complete user journey."
+  },
+  "code": {
+    "title": "The details are in the code.",
+    "cta": "Explore GitHub"
   }
 }
